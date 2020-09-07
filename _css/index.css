@@ -1,0 +1,31 @@
+@charset "UTF-8";
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+#cabecalho{
+
+    padding: 10px 10px 0px 10px;
+
+}
+
+#Dado1 { /* Caixa de texto  */
+    padding: 7px;
+}
+#ExInser{
+    padding: 10px 0px 10px 10px;
+}
+#botao1{ /* Botão de inserção de dados */
+   
+    height: 50px;
+    width: 70px;
+    font-size: 30px;
+    font-style: normal;
+
+}
+#DivBut {
+    padding: 10px 0px 0px 0px;
+}
+
