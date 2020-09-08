@@ -1,25 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="_css/index.css">
-    <title>Document</title>
+    <src="_JavaScript/calculos.js"></script>
+    <title>Trabalho Estatistica</title>
     <header>
         <div id="cabecalho">
             <h1>Trabalho de Estatistica</h1>
         </div>
-
     </header>
 </head>
+
 <body>
-   <div id="ExInser">
-    <h2>Inserção de dados</h2>
-    <input type="text" id="Dado1">
-    <div id="DivBut">
-        <button id="botao1"><h5>teste</h5></button>
+    <div id="Menu">
+        <!-- Menu da aplicação -->
+        <div id="Botoes"> <!-- Upside Button-->
+            <button id="Manual">Manual</button>
+            <button id="Arquivo">Enviar Arquivo</button>
+            
+
+        </div>
+        
+        <a href="Arquivo" onClick="javascript:window.open ('popup.html'); return false">Abrir popup</a>
+
+        <input type="text" id="VarNome"> <!-- Input nome da variavel-->
+        <input type="text" id="VarValor">
+
+       
+        <div id="Quali"><!--Option Button Qualitativa-->
+            <h3>Qualitativa</h3> 
+             
+            <input type="radio" id="QlN" name="Quali" >
+            <label for="Nominal">Nominal</label>
+            <input type="radio" id="QlO" name="Quali" >
+            <label for="Ordinal">Ordinal</label><br>
+        </div>
+        <br>
+        <div id="Quant"><!--Option Button Quanti-->
+            <h3>Quantitativa</h3> 
+             
+            <input type="radio" id="QtD" name="Quanti" >
+            <label for="Discreta">Discreta</label>
+            <input type="radio" id="QtC" name="Quanti" >
+            <label for="Continua">Continua</label><br>
+        </div>
+        <br>
+        <div id="AmoPopu"> <!-- Amostra e População-->
+
+            <input type="radio" id="Opt5" name="AmoPopu" >
+            <label for="Amostra">Amostra</label>
+            <input type="radio" id="Opt6" name="AmoPopu" >
+            <label for="População">População</label><br>
+        </div>
+
+
+        <div id="Botoes2"><!-- Downside Button-->
+            <button id="Limpar">Limpar</button>
+            <button id="Calcular">Calcular</button>
+        </div>
     </div>
-</div>
 
 </body>
+
 </html>
