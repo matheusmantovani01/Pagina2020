@@ -1,15 +1,10 @@
 const LTDA = () => {
     const readline = require('readline')
     const fs = require('fs')
-    const readble = fs.createReadStream(varWindow)
+    const readble = fs.createReadStream()
+    readble.line[0]
 
-    const rl = readline.createInterface({
-        input: readble,
-    })
-
-    rl.on('line', (line)=>{
-        console.log(line)
-    })
+  
 }
 
 let QualiNo = getElementById(QlN)
@@ -22,15 +17,8 @@ if(QuliNo){
 }else if(QualiOr){
 
 }else if(QuantDis){
-    
+
 }else if(QuantCon){
 
 }
 
-function abrirPopup(){
-    abrirWindow = window.open('', 'pagina')
-    }
-    
-    function fecharPopup(){
-    fecharWindow = abrirWindow.close()
-    }

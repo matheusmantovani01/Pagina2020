@@ -5,27 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="_css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kufam:ital,wght@1,700&display=swap" rel="stylesheet">
     <src="_JavaScript/calculos.js"></script>
     <title>Trabalho Estatistica</title>
     <header>
         <div id="cabecalho">
-            <h1>Trabalho de Estatistica</h1>
         </div>
     </header>
 </head>
 
 <body>
+    
+    
     <div id="Menu">
         <!-- Menu da aplicação -->
         <div id="Botoes"> <!-- Upside Button-->
-            <button id="Manual">Manual teste</button>
-            <button id="Arquivo">Enviar Arquivo</button>
-            
+        
+            <ul id="ManualTeste">
+                <li id="tab active"><a href="#Manual">Manual</a></li>
+                <li id="tab"><a href="#Enviar">Enviar</a></li>
+              </ul>
+
+
+
+            <div id="Enviar">
+            <form action="/action_page.php">
+                <input type="file" id="myFile" name="filename">
+                <input type="submit">
+                </form>
+            </div>
+
+         
+
 
         </div>
-        
-        <a href="Arquivo" onClick="javascript:window.open ('popup.html'); return false">Abrir popup</a>
-
+        <div id="Manual">
         <input type="text" id="VarNome"> <!-- Input nome da variavel-->
         <input type="text" id="VarValor">
 
@@ -62,7 +76,7 @@
             <button id="Calcular">Calcular</button>
         </div>
     </div>
-
+</div>
 </body>
 
 </html>
