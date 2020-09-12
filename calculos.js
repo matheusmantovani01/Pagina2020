@@ -1,27 +1,39 @@
-let QualiNo = getElementById(QlN)
-let QualiOr = getElementById(QlO)
-let QuantDis = getElementById(QtD)
-let QuantCon = getElementById(QtC)
+let QualiNo 
+let QualiOr 
+let QuantDis 
+let QuantCon 
+let Validar = true
 
 QualiNo = true
 
 let Vet = ["Grau de Escolaridade", "Ensino Superior", "Ensino Médio", "Ensino Fundamental", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "Ensino Superior", "Ensino Superior" , "Ensino Médio", "Ensino Médio", "Ensino Médio", "muito bom", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "pessimo", "Ensino Fundamental", "Ensino Médio","Ensino Médio", "Ensino Médio"]
 
-let Obj = {}
+let Obj = {
+    Titulo: "",
+    Itens:{
+
+    }
+}
 
 let Calcular = () =>{
     for(Verifica in Vet){
+
         if (Verifica == 0){
-             Obj.titulo = Vet[Verifica]
+             Obj.Titulo = Vet[Verifica]
+             alert("Novo Título adicionado: ", Vet[Verifica])
         } else{
-            if (Vet.Itens.indexOf(Vet[Verifica])){
-                Obj.Intens.Vet[Verifica] ++
+            console.log(Obj)
+            if(Obj.Itens.hasOwnProperty([Vet[Verifica]])){
+                Obj.Itens[Vet[Verifica]]++
+                alert(Vet[Verifica], " foi Incrementado!")
             }else{
-                 Obj.Itens.Vet[Verifica] = 1
+                Obj.Itens[Vet[Verifica]] = 1
+                alert("Novo Item adicionado: ", Vet[Verifica])
             }
         }
-     }
-
+    }
+    
+     console.log(Obj)
     if (QualiNo){
        
     }else if (QualiOr) {
@@ -32,3 +44,4 @@ let Calcular = () =>{
       
     }
 }
+Calcular()
