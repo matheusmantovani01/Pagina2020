@@ -5,15 +5,24 @@ let QuantCon = getElementById(QtC)
 
 let Obj = {}
 
-    if(QuliNo){
-
-    }else if(QualiOr){
-    
-    }else if(QuantDis){
-        
-    }else if(QuantCon){
-    
-    }
-
 }
 
+let Calcular = () =>{
+    if (QualiNo){
+        for(Verifica of Obj){
+
+        }
+    }else if (QualiOr) {
+        for(Verifica of Obj){
+            
+        }
+    }else if (QuantDis) {
+        for(Verifica of Obj){
+            
+        }
+    }else {
+        for(Verifica of Obj){
+            
+        }
+    }
+}
