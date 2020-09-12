@@ -10,20 +10,20 @@ let Vet = ["Grau de Escolaridade", "Ensino Superior", "Ensino Médio", "Ensino F
 let Obj = {}
 
 let Calcular = () =>{
-    for(Verifica of Vet.length){
+    for(Verifica in Vet){
         if (Verifica == 0){
              Obj.titulo = Vet[Verifica]
         } else{
-            if (Vet[Verifica] in Obj.Itens){
+            if (Vet.Itens.indexOf(Vet[Verifica])){
                 Obj.Intens.Vet[Verifica] ++
             }else{
                  Obj.Itens.Vet[Verifica] = 1
             }
         }
      }
-     
+
     if (QualiNo){
-        
+       
     }else if (QualiOr) {
         
     }else if (QuantDis) {
