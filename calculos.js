@@ -3,7 +3,8 @@ let QualiOr
 let QuantDis 
 let QuantCon 
 let caso
-let M = [false, false, false, false, false, false, false, false, false, false, false, false,]
+let M = [false, false, false, false, false, false, false, false, false, false, false, false]
+let V = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
 
 QualiNo = false
 QualiOr = true
@@ -56,51 +57,103 @@ let Calcular = () =>{
             }
         }
         switch (caso){
-            case 0:
+            case 1:
                  for(Atual in Obj.Itens){
                     Atual.toUpperCase()
                     switch (Atual){
                         case "JANEIRO":
-                            M[0] = true
+                            M[0] = "JANEIRO"
 
                         case "FEVEREIRO":
-                            M[1] = true
+                            M[1] = "FEVEREIRO"
 
                         case "MARÇO":
-                            M[2] = true
+                            M[2] = "MARÇO"
 
                         case "ABRIL":
-                            M[3] = true
+                            M[3] = "ABRIL"
 
                         case "MAIO":
-                            M[4] = true
+                            M[4] = "MAIO"
 
                         case "JUNHO":
-                            M[5] = true
+                            M[5] = "JUNHO"
 
                         case "JULHO":
-                            M[6] = true
+                            M[6] = "JULHO"
 
                         case "AGOSTO":
-                            M[7] = true
+                            M[7] =  "AGOSTO"
 
                         case "SETEMBRO":
-                            M[8] = true
+                            M[8] = "SETEMBRO"
 
                         case "OUTUBRO":
-                            M[9] = true
+                            M[9] = "OUTUBRO"
 
                         case "NOVEMBRO":
-                            M[10] = true
+                            M[10] = "NOVEMBRO"
 
                         case "DEZEMBRO":
-                            M[11] = true
+                            M[11] = "DEZEMBRO"
 
                     }   
                  }
-            case 1:
-
             case 2:
+                for(Atual in Obj.Itens){
+                    String(Atual).toUpperCase()
+                        if(Atual.indexOf("DOUTORADO")){
+                            V[0] = "DOUTORADO"
+                        }
+                        if(Atual.indexOf("MESTRADO")){
+                            V[1] = "MESTRADO"
+                        }
+                        if(Atual.indexOf("PÓS GRADUAÇÃO" || "PÓS-GRADUAÇÃO" || "POS GRADUAÇÃO" || "POS-GRADUAÇÃO")){
+                            V[2] = "PÓS GRADUAÇÃO"
+                        }
+                        if(Atual.indexOf("MUITO-ALTO" || "MUITO ALTO")){
+                            V[3] = "MUITO ALTO"
+                        }
+                        if(Atual.indexOf("ALTO")){
+                            V[4] = "ALTO"
+                        }
+                        if(Atual.indexOf("SUPERIOR")){
+                            V[5] = "SUPERIOR"
+                        }
+                        if(Atual.indexOf("MUITO BOM" || "MUITO-BOM")){
+                            V[6] = "MUITO BOM"
+                        }
+                        if(Atual.indexOf("BOM")){
+                            V[7] = "BOM"
+                        }
+                        if(Atual.indexOf("INTERMEDIÁRIO" || "INTERMEDIARIO" || "MEDIO"  || "MEDIANO")){
+                            V[8] = "MEDIO"
+                        }
+                        if(Atual.indexOf("RAZOAVEL")){
+                            V[9] = "RAZOAVEL"
+                        }
+                        if(Atual.indexOf("FUNDAMENTAL")){
+                            V[10] = "FUNDAMENTAL"
+                        }
+                        if(Atual.indexOf("DOUTORADO")){
+                            V[11] = "DOUTORADO"
+                        }
+                        if(Atual.indexOf("DOUTORADO")){
+                            V[12] = "DOUTORADO"
+                        }
+                        if(Atual.indexOf("DOUTORADO")){
+                            V[13] = "DOUTORADO"
+                        }
+                        if(Atual.indexOf("DOUTORADO")){
+                            V[14] = "DOUTORADO"
+                        }
+                        if(Atual.indexOf("DOUTORADO")){
+                            V[15] = "DOUTORADO"
+                        }
+                        
+                }   
+            
+            case 0:
 
         }
 
