@@ -7,6 +7,7 @@ let it
 let M = [false, false, false, false, false, false, false, false, false, false, false, false]
 let V = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
 let I = []
+let G = []
 let criadiv = document.createElement('div')
 
 
@@ -257,26 +258,37 @@ let Calcular = () =>{
 
         let contador = 0
         let guardar
+        let guardar2
 
         for(Atual in Obj.Itens){
             if (contador == 0) {
                 I[contador] = Obj.Itens[Atual]
+                G[contador] = Atual
             }else{
-                if (I[contador] > I[contador - 1]){
+                if (Obj.Itens[Atual] > I[contador - 1]){
                     guardar = I[contador - 1]
+                    guardar2 = G[contador - 1]
                     I[contador - 1] = Obj.Itens[Atual]
+                    G[contador - 1] = Atual
                     I[contador] = guardar
+                    G[contador] = guardar2
                 }else{
                     I[contador] = Obj.Itens[Atual]
+                    G[contador] = Atual
                 }
             }
             console.log(typeof(Obj.Itens[Atual]))
             contador ++
         }
         console.log(I)
-        for(Atual in I){
-            
+        console.log(G)
+
+        criadiv.innerHTML += "Tipo da pesquisa: " + "Quantitativa Discreta" + '<br/>'
+        criadiv.innerHTML += "Título da pesquisa: " + Obj.Titulo + '<br/>' + '<br/>'
+        for(var Atual = 0; Atual < I.length; Atual++){
+            criadiv.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + '<br/>'
         }
+        
     }else {
       
     }
