@@ -3,6 +3,7 @@ let QualiOr
 let QuantDis 
 let QuantCon 
 let caso
+let M = [false, false, false, false, false, false, false, false, false, false, false, false,]
 
 QualiNo = false
 QualiOr = true
@@ -54,6 +55,55 @@ let Calcular = () =>{
                 caso = 0
             }
         }
+        switch (caso){
+            case 0:
+                 for(Atual in Obj.Itens){
+                    Atual.toUpperCase()
+                    switch (Atual){
+                        case "JANEIRO":
+                            M[0] = true
+
+                        case "FEVEREIRO":
+                            M[1] = true
+
+                        case "MARÇO":
+                            M[2] = true
+
+                        case "ABRIL":
+                            M[3] = true
+
+                        case "MAIO":
+                            M[4] = true
+
+                        case "JUNHO":
+                            M[5] = true
+
+                        case "JULHO":
+                            M[6] = true
+
+                        case "AGOSTO":
+                            M[7] = true
+
+                        case "SETEMBRO":
+                            M[8] = true
+
+                        case "OUTUBRO":
+                            M[9] = true
+
+                        case "NOVEMBRO":
+                            M[10] = true
+
+                        case "DEZEMBRO":
+                            M[11] = true
+
+                    }   
+                 }
+            case 1:
+
+            case 2:
+
+        }
+
     }else if (QuantDis) {
         
     }else {
