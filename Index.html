@@ -21,68 +21,23 @@
         <!-- Menu da aplicação -->
         <div id="Botoes"> <!-- Upside Button-->
         
-            <ul id="ManualTeste">
-                <li id="tab active"><a href="#Manual">Manual</a></li>
-                <li id="tab"><a href="#Enviar">Enviar</a></li>
-              </ul>
+            <ul id="Manual">
+                <a href="Manual.html" target="page"><li id="Manu">Manual</li></a>
+                <a href="Enviar.html" target="page"><li id="Envi">Subir Arquivo</li></a>
+            </ul>
 
-
-
-            <div id="Enviar">
-            <form action="/action_page.php">
-                <input type="file" id="myFile" name="filename">
-                <input type="submit">
-                </form>
-            </div>
-
-         
-
+             <iframe src="" name="page" id="iframe" style="border: 0ch;" width="100%" height="100%" ></iframe>
 
         </div>
-        <div id="Manual">
-        <input type="text" id="VarNome"> <!-- Input nome da variavel-->
-        <input type="text" id="VarValor">
-
        
-        <div id="Quali"><!--Option Button Qualitativa-->
-            <h3>Qualitativa</h3> 
-             
-            <input type="radio" id="QlN" name="Quali" >
-            <label for="Nominal">Nominal</label>
-            <input type="radio" id="QlO" name="Quali" >
-            <label for="Ordinal">Ordinal</label><br>
-        </div>
-        <br>
-        <div id="Quant"><!--Option Button Quanti-->
-            <h3>Quantitativa</h3> 
-             
-            <input type="radio" id="QtD" name="Quanti" >
-            <label for="Discreta">Discreta</label>
-            <input type="radio" id="QtC" name="Quanti" >
-            <label for="Continua">Continua</label><br>
-        </div>
-        <br>
-        <div id="AmoPopu"> <!-- Amostra e População-->
+</div>
 
-            <input type="radio" id="Opt5" name="AmoPopu" >
-            <label for="Amostra">Amostra</label>
-            <input type="radio" id="Opt6" name="AmoPopu" >
-            <label for="População">População</label><br>
-        </div>
-
-
-        <div id="Botoes2"><!-- Downside Button-->
-            <button id="Limpar">Limpar</button>
-            <button id="Calcular">Calcular</button>
-        </div>
-    </div>
-    <section>
-
+    <section >
     </section>
     <script>
         Calcular()
     </script>
-</div>
+
 </body>
 
 </html>

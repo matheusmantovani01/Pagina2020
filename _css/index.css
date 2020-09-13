@@ -3,40 +3,117 @@
 *{
     margin: 0;
     padding: 0;
-    background-color: rgb(199, 202, 214);
-    
+    background-color: rgb(228, 231, 209);
+   
 }
-
-section{
-  background-color: white;
+#Manual{
+  display:block;
+  text-decoration:none;
+  padding:5px;
+  color:rgb(29, 40, 82);
+  /*background-color:rgb(199, 202, 214) ;*/
+  font-size: 70px;
+  cursor:pointer;
   text-align: center;
-  padding: 20px;
+  transition:.5s ease;
 }
-
-section div{
-  background-color: white;
+li {
+  padding: 10px 0px 10px 10px;
+  text-align: center;
 }
-
-#ManualTeste {
-    background-color:rgb(199, 202, 214) ;
-    font-size: 70px;
-    text-align: center;
+li:hover{
+    background-color:rgb(148, 210, 238);
+    color: rgb(87, 168, 134);   
 }
-#ManualTeste :hover{
-    background-color:rgb(98, 0, 255);
-    color: rgb(0, 119, 255);
-    transition: ease-in 0.4s;
-}
-
-#ManualTeste a{
+#Manual a{
   position: relative;
-    color:rgb(200, 169, 250);
-    font-family: 'Kumbh Sans', sans-serif;
+  color:rgb(148, 210, 238);
+  font-family: 'Kumbh Sans', sans-serif;
   text-decoration: none;
-
-  
- 
+  background-size: contain;
+}
+li:hover > a{
+  background-color:rgb(148, 210, 238);
+  color: rgb(87, 168, 134); 
 }
 #Manual{
     text-align: center;
 }
+iframe{
+  height: 500px;
+  position: relative;
+  align-content: center; 
+}
+#EnviarIframe  {
+  margin: 0 auto; 
+  width:250px;
+  height: 250px; 
+}
+#ManualIframe{
+  margin: 0 auto ;
+  padding: 50px 50px 50px 50px; 
+  width:250px;
+  color:rgb(62, 0, 161);
+  font-family: 'Kumbh Sans', sans-serif;
+  text-decoration: none;
+  font-size:15px ;
+  background-color: rgb(200, 216, 218);
+}
+#ManualIframe input{
+  margin: 10px 0px 10px 0px ;
+  background-color: rgba(137, 43, 226, 0.295);
+}
+#ManualIframe div{
+  background-color: rgb(200, 216, 218);
+}
+#ManualIframe label{
+  background-color: rgb(200, 216, 218);
+}
+#ManualIframe h3{
+  background-color: rgb(200, 216, 218);
+}
+#ManualIframe button{
+  background-color: rgb(182, 216, 216);
+}
+#Limpar {
+ background-color: #4CAF50;  
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 12px;
+  box-shadow: 2px 2px rgba(116, 116, 116, 0.116);
+  border: none;
+  outline: none;
+} 
+#Limpar:hover{
+  background-color: rgba(116, 116, 116, 0.116);
+  transition: .7s;
+  box-shadow:2px 2px rgba(137, 43, 226, 0.295);
+ } 
+ #Limpar:active{
+   background-color: royalblue;
+ }
+#Calcular{
+  background-color: #4CAF50; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+  box-shadow: 2px 2px rgba(116, 116, 116, 0.116);
+  outline: none;
+}
+#Calcular:hover{
+  background-color: rgba(116, 116, 116, 0.116);
+  transition: .7s;
+  box-shadow:2px 2px rgba(137, 43, 226, 0.295);
+ } 
+ #Calcular:active{
+   background-color: royalblue;
+ }
+
