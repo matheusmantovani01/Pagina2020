@@ -111,7 +111,6 @@ iframe{
   border-radius: 12px;
   box-shadow: 2px 2px rgba(116, 116, 116, 0.116);
   border: none;
-  outline: none;
 } 
 #Limpar:hover{
   background-color: rgba(116, 116, 116, 0.116);
@@ -132,7 +131,6 @@ iframe{
   font-size: 16px;
   border-radius: 12px;
   box-shadow: 2px 2px rgba(116, 116, 116, 0.116);
-  outline: none;
 }
 #Calcular:hover{
   background-color: rgba(116, 116, 116, 0.116);
@@ -144,6 +142,14 @@ iframe{
  }
  #EnviarIframe form{
    background-color: rgb(200, 216, 218);
-   color: blue;
+   text-align: center;
+   box-shadow: 2px 2px 2px 2px rgb(114, 114, 114);
+   width:280px;
+ }
+ #EnviarIframe{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    left: -100px;  
  }
 

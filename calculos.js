@@ -1,3 +1,7 @@
+const readline = riquire('readline')
+const fs = require('fs')
+
+
 let QualiNo 
 let QualiOr 
 let QuantDis 
@@ -299,23 +303,26 @@ let Calcular = () =>{
     }else {
         contador = 0
         for(Atual of Vet){
+            Vet[contador] = parseInt(Vet, 10)
             if (contador == 0) {
                 I[contador] = Atual
             }else{
                 for(ordenar in I){
-                    if(trocou){
-                        if(Atual < I[ordenar]){
-                            
+                    if(Atual < I[ordenar - 1]){
+                        for (var i = ordenar; i < I.length; i++){
+                            guardar = I[i-1]
+                            I[i-1] = Atual
+                            I[i] = guardar 
                         }
-                    }else{
-                        
                     }
                 }
             }
-            contador++
         }
         console.log(I)
-
+        contador++
     }
+   
+
+
     secao.appendChild(criadiv)
 }
