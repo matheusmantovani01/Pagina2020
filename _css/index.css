@@ -142,7 +142,7 @@ iframe{
  #Calcular:active{
    background-color: royalblue;
  }
- #EnviarIframe input{
+ #EnviarIframe form{
    background-color: rgb(200, 216, 218);
    color: blue;
  }
