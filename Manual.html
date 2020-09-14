@@ -4,42 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="_css/index.css">
-    <title>Document</title>
+    <title>Manual</title>
 </head>
 <body>
     
 <div id="ManualIframe">
     <div id="InputText">
-        <label id="LabelNome">Nome: </label>
-    <input type="text" id="VarNome" <!-- Input nome da variavel-->
-
-    <label id="LabelValor">Valor:</label>    <input type="text" id="VarValor">
-    </div>
    
+   
+    <label for="VarNome" id="LabelNome">Nome: </label>
+    <input type="text" id="VarNome" name="NomeSele"> <!--Input nome da variavel-->
+
+    <label for="VarValor" id="LabelValor">Valor:</label>    <input type="text" id="VarValor">
+    </div>
+
+
+
+
+
+
+   <div id="FormInput">
     <div id="Quali"><!--Option Button Qualitativa-->
         <h3>Qualitativa</h3> 
-         
-        <input type="radio" id="QlN" name="Quali" >
-        <label for="Nominal">Nominal</label>
-        <input type="radio" id="QlO" name="Quali" >
-        <label for="Ordinal">Ordinal</label><br>
+        <label for="QlN">
+        <input type="radio" id="QlN" name="Inputs" value="value">
+        Nominal</label>
+
+        <label for="QlO">
+        <input type="radio" id="QlO" name="Inputs" >
+        Ordinal</label><br>
+
     </div>
     <br>
     <div id="Quant"><!--Option Button Quanti-->
         <h3>Quantitativa</h3> 
-         
-        <input type="radio" id="QtD" name="Quanti" >
-        <label for="Discreta">Discreta</label>
-        <input type="radio" id="QtC" name="Quanti" >
-        <label for="Continua">Continua</label><br>
+        <label for="QtD"> 
+        <input type="radio" id="QtD" name="Inputs" >
+        Discreta</label>
+
+        <label for="QtC">
+        <input type="radio" id="QtC" name="Inputs" >
+        Continua</label><br>
     </div>
     <br>
     <div id="AmoPopu"> <!-- Amostra e População-->
-
+        <label for="Opt5">
         <input type="radio" id="Opt5" name="AmoPopu" >
-        <label for="Amostra">Amostra</label>
+        Amostra</label>
+        <label for="Opt6">
         <input type="radio" id="Opt6" name="AmoPopu" >
-        <label for="População">População</label><br>
+        População</label><br>
     </div>
 
 
@@ -47,6 +61,7 @@
         <button id="Calcular">Calcular</button>
         <button id="Limpar">Limpar</button>
     </div>
+</div>
 </div>
 </body>
 </html>

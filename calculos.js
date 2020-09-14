@@ -4,6 +4,10 @@ let QuantDis
 let QuantCon 
 let caso = 0
 let it
+let contador = 0
+let guardar
+let guardar2
+let trocou = false
 let M = [false, false, false, false, false, false, false, false, false, false, false, false]
 let V = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
 let I = []
@@ -13,9 +17,11 @@ let criadiv = document.createElement('div')
 
 QualiNo = false
 QualiOr = false
-QuantDis = true
+QuantDis = false
 
-let Vet = ["Grau de Escolaridade", "Ensino Superior", "Ensino Médio", "Ensino Fundamental", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "Ensino Superior", "Ensino Superior" , "Ensino Médio", "Ensino Médio", "Ensino Médio", "muito bom", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "pessimo", "Ensino Fundamental", "Ensino Médio","Ensino Médio", "Ensino Médio"]
+//let Vet = ["Grau de Escolaridade", "Ensino Superior", "Ensino Médio", "Ensino Fundamental", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "Ensino Superior", "Ensino Superior" , "Ensino Médio", "Ensino Médio", "Ensino Médio", "muito bom", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "pessimo", "Ensino Fundamental", "Ensino Médio","Ensino Médio", "Ensino Médio"]
+
+let Vet = ["111", "90", "121", "105", "122", "61", "128", "112", "128", "93", "108", "138", "88", "110", "112", "112", "97", "128", "102", "125", "87", "119", "104", "116", "96", "114", "107", "113", "80", "113", "123", "95", "115", "70", "115", "101", "114", "127", "92", "103", "78", "118"]
 
 let Obj = {
     Titulo: "",
@@ -23,10 +29,10 @@ let Obj = {
 
     }
 }
-let Calcular = () =>{
+let Objeto = () =>{
     for(Verifica in Vet){
         if (Verifica == 0){
-             Obj.Titulo = Vet[Verifica]
+            Obj.Titulo = Vet[Verifica]
         } else{
             if(Obj.Itens.hasOwnProperty([Vet[Verifica]])){
                 Obj.Itens[Vet[Verifica]]++
@@ -35,20 +41,25 @@ let Calcular = () =>{
                 
             }
         }
-    } 
+        console.log(Obj)
+    }
+} 
 
-    console.log(Obj)
+
+let Calcular = () =>{
+    
 
     const secao = document.querySelector('section')
 
     if (QualiNo){
-
+        Objeto()
         for(Atual in Obj.Itens){
             criadiv.innerHTML +=  Atual + " Tendo: "+ Obj.Itens[Atual] + '<br/>'
         }
 
 
     }else if (QualiOr) {
+        Objeto()
         for(Atual in Obj.Itens){
             String(Atual)
             Atual.toUpperCase()
@@ -255,10 +266,7 @@ let Calcular = () =>{
         }
 
     }else if (QuantDis) {
-
-        let contador = 0
-        let guardar
-        let guardar2
+        Objeto()
 
         for(Atual in Obj.Itens){
             if (contador == 0) {
@@ -277,7 +285,6 @@ let Calcular = () =>{
                     G[contador] = Atual
                 }
             }
-            console.log(typeof(Obj.Itens[Atual]))
             contador ++
         }
         console.log(I)
@@ -288,9 +295,27 @@ let Calcular = () =>{
         for(var Atual = 0; Atual < I.length; Atual++){
             criadiv.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + '<br/>'
         }
-        
+
     }else {
-      
+        contador = 0
+        for(Atual of Vet){
+            if (contador == 0) {
+                I[contador] = Atual
+            }else{
+                for(ordenar in I){
+                    if(trocou){
+                        if(Atual < I[ordenar]){
+                            
+                        }
+                    }else{
+                        
+                    }
+                }
+            }
+            contador++
+        }
+        console.log(I)
+
     }
     secao.appendChild(criadiv)
 }

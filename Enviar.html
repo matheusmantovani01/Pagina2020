@@ -7,16 +7,51 @@
     <title>Document</title>
 </head>
 <body id="CorpoEnvio">
-    <div id="EnviarIframe">
-    
-        <form action="/action_page.php">
-            <input type="file" id="myFile" name="filename">
-            
-            </form>
-            <button>
-                Enviar
-            </button>
-        </div>
+        <div id="ManualIframe">
+            <div id="EnviarIframe">   
+                <form action="/action_page.php">
+                    <input type="file" id="myFile" name="filename">                 
+                    </form>
+                </div>
+           
+                <div id="FormInput">
+                    <div id="Quali"><!--Option Button Qualitativa-->
+                        <h3>Qualitativa</h3> 
+                        <label for="QlN">
+                        <input type="radio" id="QlN" name="Inputs" value="value">
+                        Nominal</label>
+                
+                        <label for="QlO">
+                        <input type="radio" id="QlO" name="Inputs" >
+                        Ordinal</label><br>
+                
+                    </div>
+                    <br>
+                    <div id="Quant"><!--Option Button Quanti-->
+                        <h3>Quantitativa</h3> 
+                        <label for="QtD"> 
+                        <input type="radio" id="QtD" name="Inputs" >
+                        Discreta</label>
+                
+                        <label for="QtC">
+                        <input type="radio" id="QtC" name="Inputs" >
+                        Continua</label><br>
+                    </div>
+                    <br>
+                    <div id="AmoPopu"> <!-- Amostra e População-->
+                        <label for="Opt5">
+                        <input type="radio" id="Opt5" name="AmoPopu" >
+                        Amostra</label>
+                        <label for="Opt6">
+                        <input type="radio" id="Opt6" name="AmoPopu" >
+                        População</label><br>
+                    </div>
+                
+                
+                    <div id="Botoes2"><!-- Downside Button-->
+                        <button id="Calcular">Calcular</button>
+                        <button id="Limpar">Limpar</button>
+                    </div>
     
 </body>
 </html>

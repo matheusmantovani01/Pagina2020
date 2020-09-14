@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     background-color: rgb(228, 231, 209);
-   
+    outline: none;
 }
 #Manual{
   display:block;
@@ -35,6 +35,7 @@ li:hover{
 li:hover > a{
   background-color:rgb(148, 210, 238);
   color: rgb(87, 168, 134); 
+  
 }
 #Manual{
     text-align: center;
@@ -43,6 +44,7 @@ iframe{
   height: 500px;
   position: relative;
   align-content: center; 
+  
 }
 #EnviarIframe  {
   margin: 0 auto; 
@@ -52,17 +54,38 @@ iframe{
 #ManualIframe{
   margin: 0 auto ;
   padding: 50px 50px 50px 50px; 
-  width:250px;
-  color:rgb(62, 0, 161);
+  width:450px;
+  color:rgb(82, 69, 104);
   font-family: 'Kumbh Sans', sans-serif;
   text-decoration: none;
   font-size:15px ;
   background-color: rgb(200, 216, 218);
+  border-radius: 12px;
+  box-shadow: 2px 2px rgba(112, 111, 111, 0.356);
 }
 #ManualIframe input{
   margin: 10px 0px 10px 0px ;
-  background-color: rgba(137, 43, 226, 0.295);
+  background-color: rgba(228, 200, 253, 0.356);
+  border-radius: 6px;
+  
 }
+#InputText input{
+  width: 100px;
+  margin: 26px;
+}
+#VarNome:hover{
+  transform: scale(1.55);
+  transition: transform .2s;
+  right: 100px;
+  box-shadow: 1px 2px 2px  black;
+}
+#VarValor:hover{
+  transform: scale(1.55);
+  transition: transform .2s;
+  right: 100px;
+  box-shadow: 1px 2px 2px  black;
+}
+
 #ManualIframe div{
   background-color: rgb(200, 216, 218);
 }
@@ -74,6 +97,9 @@ iframe{
 }
 #ManualIframe button{
   background-color: rgb(182, 216, 216);
+}
+#Botoes2{
+ text-align: center;
 }
 #Limpar {
  background-color: #4CAF50;  
@@ -115,5 +141,9 @@ iframe{
  } 
  #Calcular:active{
    background-color: royalblue;
+ }
+ #EnviarIframe input{
+   background-color: rgb(200, 216, 218);
+   color: blue;
  }
 
