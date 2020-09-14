@@ -5,6 +5,11 @@
     padding: 0;
     background-color: rgb(228, 231, 209);
     outline: none;
+    text-decoration: none;
+    
+}
+body{
+  overflow: hidden;
 }
 #Manual{
   display:block;
@@ -41,15 +46,17 @@ li:hover > a{
     text-align: center;
 }
 iframe{
-  height: 500px;
+  height:800px;
   position: relative;
   align-content: center; 
+  
   
 }
 #EnviarIframe  {
   margin: 0 auto; 
   width:250px;
-  height: 250px; 
+  height: 250px;
+  overflow: visible;
 }
 #ManualIframe{
   margin: 0 auto ;
@@ -62,6 +69,7 @@ iframe{
   background-color: rgb(200, 216, 218);
   border-radius: 12px;
   box-shadow: 2px 2px rgba(112, 111, 111, 0.356);
+  
 }
 #ManualIframe input{
   margin: 10px 0px 10px 0px ;
@@ -101,8 +109,7 @@ iframe{
 #Botoes2{
  text-align: center;
 }
-#Limpar {
- background-color: #4CAF50;  
+#Limpar { 
   color: white;
   padding: 15px 32px;
   text-align: center;
@@ -111,6 +118,7 @@ iframe{
   border-radius: 12px;
   box-shadow: 2px 2px rgba(116, 116, 116, 0.116);
   border: none;
+  
 } 
 #Limpar:hover{
   background-color: rgba(116, 116, 116, 0.116);
@@ -121,7 +129,6 @@ iframe{
    background-color: royalblue;
  }
 #Calcular{
-  background-color: #4CAF50; 
   border: none;
   color: white;
   padding: 15px 32px;
@@ -137,6 +144,16 @@ iframe{
   transition: .7s;
   box-shadow:2px 2px rgba(137, 43, 226, 0.295);
  } 
+ #Calcular a{
+  background-color: rgb(182, 216, 216);
+  border: none;
+  color: white;
+ }
+ #Calcular:hover a{
+  background-color: rgba(116, 116, 116, 0.0);
+  transition: .7s;
+  
+ } 
  #Calcular:active{
    background-color: royalblue;
  }
@@ -151,5 +168,9 @@ iframe{
     height: 100px;
     position: relative;
     left: -100px;  
+ }
+ #Grafico{
+   width: auto;
+   height: auto;
  }
 

@@ -1,10 +1,10 @@
-const readline = require('readline');
-const fs = require('fs');
+const readline = require('read)
+c'onst fs = require('fs');
 const redable = fs.createReadStream('Dados_Apresentacao_Programa_teste')
 
 const rl = readline.crateInterface({
-    input: redable
-    output: process.stdout
+   input: redable
+  , ut: process.stdout
 })
 ;
 
@@ -324,9 +324,10 @@ let Calcular = () =>{
                     }
                 }
             }
+            contador++
         }
         console.log(I)
-        contador++
+        
     }
    
 
