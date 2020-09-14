@@ -1,5 +1,12 @@
-const readline = riquire('readline')
-const fs = require('fs')
+const readline = require('readline');
+const fs = require('fs');
+const redable = fs.createReadStream('Dados_Apresentacao_Programa_teste')
+
+const rl = readline.crateInterface({
+    input: redable
+    output: process.stdout
+})
+;
 
 
 let QualiNo 
