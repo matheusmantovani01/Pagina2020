@@ -140,7 +140,12 @@ let Calcular = () =>{
         console.log(At)
         console.log(clasess)
         console.log(intervalo)
-
+        
+        for(Add in Vet){
+           
+            console.log(Obj)
+        }
+    
     }
 
     secao.appendChild(criadiv)
