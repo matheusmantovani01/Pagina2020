@@ -1,15 +1,4 @@
-/*const readline = require('read)
-c'onst fs = require('fs');
-const redable = fs.createReadStream('Dados_Apresentacao_Programa_teste')
 
-const rl = readline.crateInterface({
-   input: redable
-  , ut: process.stdout
-})
-;
-*/
-
-//let vetP = string1.split(',')
 
 let QualiNo 
 let QualiOr 
@@ -128,7 +117,30 @@ let Calcular = () =>{
         return a - b;
         });
 
+        let At = Vet[Vet.length - 1] - Vet[0] + 1
+        let clasess = parseInt(Math.sqrt(Vet.length))
+        let intervalo
+
+        while(passou == false){
+            if(At % (clasess - 1) == 0){
+                passou = true
+                intervalo =  At / clasess - 1
+            }else if (At % clasess == 0){
+                passou = true
+                intervalo =  At / clasess                
+            }else if(At % (clasess + 1) == 0){
+                passou = true
+                intervalo =  At / clasess + 1
+            }else{
+                At ++
+            }
+        }
+
         console.log(Vet)
+        console.log(At)
+        console.log(clasess)
+        console.log(intervalo)
+
     }
 
     secao.appendChild(criadiv)
