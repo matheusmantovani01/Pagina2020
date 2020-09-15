@@ -1,3 +1,4 @@
+const { error } = require("console")
 
 
 let QualiNo 
@@ -109,9 +110,10 @@ let Calcular = () =>{
         }
 
     }else {
-        for (let prop in Vet) {
-            Vet[prop] = parseFloat(Vet[prop])
-        }
+
+            for (let prop in Vet) {
+                Vet[prop] = parseFloat(Vet[prop])
+            }
 
         Vet.sort(function(a, b) {
         return a - b;
@@ -140,12 +142,34 @@ let Calcular = () =>{
         console.log(At)
         console.log(clasess)
         console.log(intervalo)
-        
+        let nome
+        guardar = Vet[0]
+        let soma = 0
         for(Add in Vet){
-           
-            console.log(Obj)
+
+           if(Vet[Add] < guardar + 13){
+                nome = String(guardar + "|---" + (guardar + 13))
+                if (guardar == Vet[Add]){
+                    Obj.Itens[nome] = 1
+                }else{
+                    Obj.Itens[nome] ++
+                }
+                
+           }else {
+               guardar = Vet[Add]
+               nome = String(guardar + "|---" + (guardar + 13))
+               Obj.Itens[nome] = 1
+           }
         }
-    
+        Obj.Itens["Total"] = Vet.length
+        console.log(Obj)
+        
+        criadiv.innerHTML += "Tipo da pesquisa: " + "Quantitativa Contínua" + '<br/>'
+        criadiv.innerHTML += "Título da pesquisa: " + Obj.Titulo + '<br/>' + '<br/>'
+        for(var Atual = 0; Atual < I.length; Atual++){
+            criadiv.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + '<br/>'
+        }
+
     }
 
     secao.appendChild(criadiv)
