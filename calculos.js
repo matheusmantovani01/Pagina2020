@@ -1,4 +1,4 @@
-const readline = require('read)
+/*const readline = require('read)
 c'onst fs = require('fs');
 const redable = fs.createReadStream('Dados_Apresentacao_Programa_teste')
 
@@ -7,7 +7,9 @@ const rl = readline.crateInterface({
   , ut: process.stdout
 })
 ;
+*/
 
+//let vetP = string1.split(',')
 
 let QualiNo 
 let QualiOr 
@@ -18,9 +20,7 @@ let it
 let contador = 0
 let guardar
 let guardar2
-let trocou = false
-let M = [false, false, false, false, false, false, false, false, false, false, false, false]
-let V = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+let passou = false
 let I = []
 let G = []
 let criadiv = document.createElement('div')
@@ -72,7 +72,8 @@ let Calcular = () =>{
     }else if (QualiOr) {
         Objeto()
         // Devido a falta do banco de dados disponível, o metodo utilizado será sempre o anterior, como se ocorresse um erro
-        
+        // O codigo que iria ser utilizado para uma tentativa de subistituição está disponicel no arquvivo "utilizar depois ou removidos"
+
         criadiv.innerHTML += "Tipo da pesquisa: " + "Qualitativa Ordinal" + '<br/>'
         criadiv.innerHTML += "Título da pesquisa: " + Obj.Titulo + '<br/>' + '<br/>'
 
@@ -85,12 +86,11 @@ let Calcular = () =>{
                 for(Atual in Obj.Itens){
                     criadiv.innerHTML +=  Atual + " Tendo: "+ Obj.Itens[Atual] + '<br/>'
                 }
-        
         }
 
     }else if (QuantDis) {
         Objeto()
-
+        contador = 0
         for(Atual in Obj.Itens){
             if (contador == 0) {
                 I[contador] = Obj.Itens[Atual]
@@ -120,29 +120,16 @@ let Calcular = () =>{
         }
 
     }else {
-        contador = 0
-        for(Atual of Vet){
-            Vet[contador] = parseInt(Vet, 10)
-            if (contador == 0) {
-                I[contador] = Atual
-            }else{
-                for(ordenar in I){
-                    if(Atual < I[ordenar - 1]){
-                        for (var i = ordenar; i < I.length; i++){
-                            guardar = I[i-1]
-                            I[i-1] = Atual
-                            I[i] = guardar 
-                        }
-                    }
-                }
-            }
-            contador++
+        for (let prop in Vet) {
+            Vet[prop] = parseFloat(Vet[prop])
         }
-        console.log(I)
-        
-    }
-   
 
+        Vet.sort(function(a, b) {
+        return a - b;
+        });
+
+        console.log(Vet)
+    }
 
     secao.appendChild(criadiv)
 }
