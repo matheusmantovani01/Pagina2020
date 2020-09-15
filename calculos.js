@@ -1,6 +1,7 @@
-const { error } = require("console")
+//const { error } = require("console")
 
-
+let Acumulada
+let Relativa 
 let QualiNo 
 let QualiOr 
 let QuantDis 
@@ -19,6 +20,7 @@ let criadiv = document.createElement('div')
 QualiNo = false
 QualiOr = false
 QuantDis = false
+Relativa = true
 
 //let Vet = ["Grau de Escolaridade", "Ensino Superior", "Ensino Médio", "Ensino Fundamental", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "Ensino Superior", "Ensino Superior" , "Ensino Médio", "Ensino Médio", "Ensino Médio", "muito bom", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "pessimo", "Ensino Fundamental", "Ensino Médio","Ensino Médio", "Ensino Médio"]
 
@@ -103,10 +105,35 @@ let Calcular = () =>{
         console.log(I)
         console.log(G)
 
+        let soma
+        let F = []
+        for(item of I){
+            soma = soma + item
+        }
+        contador = 0
+        if (Relativa){
+            for(item of I){
+                F[contador] = (item / soma) * 100
+            }
+        }else{
+            for(item of I){
+                if (contador == 0){
+                    F[contador] = (item / soma) * 100
+                }else{
+                    F[contador] = (item / soma) * 100 + F[contador - 1] 
+                }
+            }
+        }
+
         criadiv.innerHTML += "Tipo da pesquisa: " + "Quantitativa Discreta" + '<br/>'
         criadiv.innerHTML += "Título da pesquisa: " + Obj.Titulo + '<br/>' + '<br/>'
+
         for(var Atual = 0; Atual < I.length; Atual++){
-            criadiv.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + '<br/>'
+            if (Relativa){
+                criadiv.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Relativa"+ F[Atual] + '<br/>'
+            }else{
+                criadiv.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Acumulada"+ F[Atual] + '<br/>'
+            }
         }
 
     }else {
@@ -163,6 +190,11 @@ let Calcular = () =>{
         }
         Obj.Itens["Total"] = Vet.length
         console.log(Obj)
+
+        for(Atual in Obj.Itens){
+            I[contador] = Obj.Itens[Atual]
+            G[contador] = Atual
+        }
         
         criadiv.innerHTML += "Tipo da pesquisa: " + "Quantitativa Contínua" + '<br/>'
         criadiv.innerHTML += "Título da pesquisa: " + Obj.Titulo + '<br/>' + '<br/>'
