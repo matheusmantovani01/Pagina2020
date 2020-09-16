@@ -7,15 +7,15 @@ let QualiOr
 let QuantDis 
 let QuantCon 
 */
- let QualNominal =  document.getElementById("QualNominal") //Qualitativa Nominal
- let QualOrdinal   =  document.getElementById("QualOrdinal")  //Qualitativa Ordinal
- let QtDiscreta  =  document.getElementById("QtDiscretal")//Quantitativa Discreta
- let QtContinua  =  document.getElementById("QtContinua")//Quantitativa Continua 
- let Relativa    =  document.getElementById("Relativa")//Relativa
- let Acumulada   =  document.getElementById("Acumulada")//Acumulada
- let Amostra     =  document.getElementById("Amostra ")//Amostra
- let Popula  =  document.getElementById("Popula")//Popula
 
+const QualNominal =  document.getElementById("QualNominal") //Qualitativa Nominal
+const QualOrdinal   =  document.getElementById("QualOrdinal")  //Qualitativa Ordinal
+const QtDiscreta  =  document.getElementById("QtDiscretal")//Quantitativa Discreta
+const QtContinua  =  document.getElementById("QtContinua")//Quantitativa Continua 
+const Relativa    =  document.getElementById("Relativa")//Relativa
+const Acumulada   =  document.getElementById("Acumulada")//Acumulada
+const Amostra     =  document.getElementById("Amostra ")//Amostra
+const Popula  =  document.getElementById("Popula")//Popula
 
 let caso = 0
 let it
@@ -30,14 +30,14 @@ let F = []
 let criadiv = document.createElement('div')
 
 
-QualiNo = false
+QualiNo = true
 QualiOr = false
 QuantDis = false
-Relativa = false
 
-//let Vet = ["Grau de Escolaridade", "Ensino Superior", "Ensino Médio", "Ensino Fundamental", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "Ensino Superior", "Ensino Superior" , "Ensino Médio", "Ensino Médio", "Ensino Médio", "muito bom", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "pessimo", "Ensino Fundamental", "Ensino Médio","Ensino Médio", "Ensino Médio"]
 
-let Vet = ["111", "90", "121", "105", "122", "61", "128", "112", "128", "93", "108", "138", "88", "110", "112", "112", "97", "128", "102", "125", "87", "119", "104", "116", "96", "114", "107", "113", "80", "113", "123", "95", "115", "70", "115", "101", "114", "127", "92", "103", "78", "118"]
+let Vet = ["Grau de Escolaridade", "Ensino Superior", "Ensino Médio", "Ensino Fundamental", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "Ensino Superior", "Ensino Superior" , "Ensino Médio", "Ensino Médio", "Ensino Médio", "muito bom", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "pessimo", "Ensino Fundamental", "Ensino Médio","Ensino Médio", "Ensino Médio"]
+
+//let Vet = ["111", "90", "121", "105", "122", "61", "128", "112", "128", "93", "108", "138", "88", "110", "112", "112", "97", "128", "102", "125", "87", "119", "104", "116", "96", "114", "107", "113", "80", "113", "123", "95", "115", "70", "115", "101", "114", "127", "92", "103", "78", "118"]
 
 let Obj = {
     Titulo: "",
@@ -72,14 +72,24 @@ let Calcular = () =>{
     console.log(Amostra)
     console.log(Popula)
     
+    
 
     const secao = document.querySelector('section')
 
-    if (QualNominal){
+    if (QualiNo){
         Objeto()
         for(Atual in Obj.Itens){
             criadiv.innerHTML +=  Atual + " Tendo: "+ Obj.Itens[Atual] + '<br/>'
         }
+
+        contador = 0
+        for(Atual in Obj.Itens){
+            I[contador] = Obj.Itens[Atual]
+            G[contador] = Atual
+            contador ++
+        } 
+        console.log(I)
+        console.log(G)
 
 
     }else if (QualOrdinal) {

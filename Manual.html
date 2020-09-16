@@ -4,19 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="_css/index.css">
+    <script src="calculos.js"></script>
     <title>Manual</title>
 </head>
 <body>
-   <script>
-      function myFunction() {
-  var x = document.getElementById("Quant");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-   </script> 
+   
 <div id="ManualIframe">
     <div id="InputText"> 
     <label for="VarNome" id="LabelNome">Nome: </label>
@@ -41,7 +33,7 @@
     <div id="Quant"><!--Option Button Quanti-->
         <h3>Quantitativa</h3> 
         <label for="QtDiscreta"> 
-        <input type="radio" id="QtDiscreta" name="Inputs" >
+        <input type="radio" id="QtDiscreta" name="Inputs">
          Discreta</label>
 
         <label for="QtContinua">
@@ -53,11 +45,11 @@
     <div id="Frequencia"><!--Option Button Quanti-->
         <h3>Frequências</h3> 
         <label for="Relativa"> 
-        <input type="radio" id="Relativa" name="Inputs" >
+        <input type="radio" id="Relativa" name="Inputs1" >
         Relativa</label>
 
         <label for="Acumulada">
-        <input type="radio" id="Acumulada" name="Inputs" >
+        <input type="radio" id="Acumulada" name="Inputs1" >
         Acumulada</label><br>
     </div>
     <br>
@@ -71,8 +63,8 @@
     </div>
     
     <div id="Botoes2"><!-- Downside Button-->
-        <a href="Graficos.html" target="page" >  <button id="Calcular">Calcular</button></a>
-        <button id="Limpar">Limpar</button>
+        <a href="Graficos.html" target="page" >  <button id="Calcular" >Calcular</button></a>
+      <a href="Index.html" target="_top">  <button id="Limpar">Voltar</button></a>
     </div>
 </div>
 </div>
