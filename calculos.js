@@ -1,11 +1,22 @@
 //const { error } = require("console")
-
+/*
 let Acumulada
 let Relativa 
 let QualiNo 
 let QualiOr 
 let QuantDis 
 let QuantCon 
+*/
+ let QualNominal =  document.getElementById("QualNominal") //Qualitativa Nominal
+ let QualOrdinal   =  document.getElementById("QualOrdinal")  //Qualitativa Ordinal
+ let QtDiscreta  =  document.getElementById("QtDiscretal")//Quantitativa Discreta
+ let QtContinua  =  document.getElementById("QtContinua")//Quantitativa Continua 
+ let Relativa    =  document.getElementById("Relativa")//Relativa
+ let Acumulada   =  document.getElementById("Acumulada")//Acumulada
+ let Amostra     =  document.getElementById("Amostra ")//Amostra
+ let Popula  =  document.getElementById("Popula")//Popula
+
+
 let caso = 0
 let it
 let contador = 0
@@ -14,13 +25,15 @@ let guardar2
 let passou = false
 let I = []
 let G = []
+let soma
+let F = []
 let criadiv = document.createElement('div')
 
 
 QualiNo = false
 QualiOr = false
 QuantDis = false
-Relativa = true
+Relativa = false
 
 //let Vet = ["Grau de Escolaridade", "Ensino Superior", "Ensino Médio", "Ensino Fundamental", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "Ensino Superior", "Ensino Superior" , "Ensino Médio", "Ensino Médio", "Ensino Médio", "muito bom", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "pessimo", "Ensino Fundamental", "Ensino Médio","Ensino Médio", "Ensino Médio"]
 
@@ -50,18 +63,26 @@ let Objeto = () =>{
 
 
 let Calcular = () =>{
+    console.log(QualNominal)
+    console.log(QualOrdinal)
+    console.log(QtDiscreta)
+    console.log(QtContinua)
+    console.log(Relativa)
+    console.log(Acumulada)
+    console.log(Amostra)
+    console.log(Popula)
     
 
     const secao = document.querySelector('section')
 
-    if (QualiNo){
+    if (QualNominal){
         Objeto()
         for(Atual in Obj.Itens){
             criadiv.innerHTML +=  Atual + " Tendo: "+ Obj.Itens[Atual] + '<br/>'
         }
 
 
-    }else if (QualiOr) {
+    }else if (QualOrdinal) {
         Objeto()
         // Devido a falta do banco de dados disponível, o metodo utilizado será sempre o anterior, como se ocorresse um erro
         // O codigo que iria ser utilizado para uma tentativa de subistituição está disponicel no arquvivo "utilizar depois ou removidos"
@@ -80,7 +101,7 @@ let Calcular = () =>{
                 }
         }
 
-    }else if (QuantDis) {
+    }else if (QtDiscreta) {
         Objeto()
         contador = 0
         for(Atual in Obj.Itens){
@@ -105,8 +126,7 @@ let Calcular = () =>{
         console.log(I)
         console.log(G)
 
-        let soma
-        let F = []
+        
         for(item of I){
             soma = soma + item
         }
@@ -130,9 +150,9 @@ let Calcular = () =>{
 
         for(var Atual = 0; Atual < I.length; Atual++){
             if (Relativa){
-                criadiv.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Relativa"+ F[Atual] + '<br/>'
+                criadiv.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Relativa: "+ F[Atual] + '<br/>'
             }else{
-                criadiv.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Acumulada"+ F[Atual] + '<br/>'
+                criadiv.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Acumulada: "+ F[Atual] + '<br/>'
             }
         }
 
@@ -191,17 +211,52 @@ let Calcular = () =>{
         Obj.Itens["Total"] = Vet.length
         console.log(Obj)
 
+        contador = 0
         for(Atual in Obj.Itens){
             I[contador] = Obj.Itens[Atual]
             G[contador] = Atual
+            contador ++
+        }
+        console.log(I)
+        console.log(G)
+
+        contador = 1
+        for(item of I){
+            if(contador < I.length){
+                soma = soma + item
+            }
+            contador ++
         }
         
-        criadiv.innerHTML += "Tipo da pesquisa: " + "Quantitativa Contínua" + '<br/>'
-        criadiv.innerHTML += "Título da pesquisa: " + Obj.Titulo + '<br/>' + '<br/>'
-        for(var Atual = 0; Atual < I.length; Atual++){
-            criadiv.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + '<br/>'
+        contador = 0
+        if (Relativa){
+            for(item of I){
+                F[contador] = (item / soma) * 100
+                contador++
+            }
+        }else{
+            for(item of I){
+                if (contador == 0){
+                    F[contador] = (item / soma) * 100
+                }else{
+                    F[contador] = (item / soma) * 100 + F[contador - 1] 
+                }
+                contador++
+            }
+            
         }
 
+        criadiv.innerHTML += "Tipo da pesquisa: " + "Quantitativa Discreta" + '<br/>'
+        criadiv.innerHTML += "Título da pesquisa: " + Obj.Titulo + '<br/>' + '<br/>'
+
+        for(var Atual = 0; Atual < I.length; Atual++){
+            if (Relativa){
+                criadiv.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Relativa: "+ F[Atual] + '<br/>'
+            }else{
+                criadiv.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Acumulada: "+ F[Atual] + '<br/>'
+            }
+        }
+        console.log(F)
     }
 
     secao.appendChild(criadiv)

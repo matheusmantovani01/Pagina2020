@@ -29,13 +29,25 @@
                     <br>
                     <div id="Quant"><!--Option Button Quanti-->
                         <h3>Quantitativa</h3> 
-                        <label for="QtD"> 
-                        <input type="radio" id="QtD" name="Inputs" >
-                        Discreta</label>
+                        <label for="QtDiscreta"> 
+                        <input type="radio" id="QtDiscreta" name="Inputs" >
+                         Discreta</label>
                 
-                        <label for="QtC">
-                        <input type="radio" id="QtC" name="Inputs" >
-                        Continua</label><br>
+                        <label for="QtContinua">
+                        <input type="radio" id="QtContinua" name="Inputs" >
+                        Continua</label>
+                        <br>
+                    </div>
+                    <br>
+                    <div id="Quant"><!--Option Button Quanti-->
+                        <h3>Frequências</h3> 
+                        <label for="Relativa"> 
+                        <input type="radio" id="Relativa" name="Inputs" >
+                        Relativa</label>
+                
+                        <label for="Acumulada">
+                        <input type="radio" id="Acumulada" name="Inputs" >
+                        Acumulada</label><br>
                     </div>
                     <br>
                     <div id="AmoPopu"> <!-- Amostra e População-->
@@ -46,12 +58,12 @@
                         <input type="radio" id="Opt6" name="AmoPopu" >
                         População</label><br>
                     </div>
-                
-                
+                    
                     <div id="Botoes2"><!-- Downside Button-->
-                        <a href="Graficos.html" target="page"><button id="Calcular">Calcular</button></a>
+                        <a href="Graficos.html" target="page" id="CalculaA" >  <button id="Calcular">Calcular</button></a>
                         <button id="Limpar">Limpar</button>
                     </div>
+                </div>
     
 </body>
 </html>
