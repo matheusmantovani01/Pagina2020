@@ -26,7 +26,8 @@ let passou = false
 let I = []
 let G = []
 let soma
-let F = []
+let Fc = []
+let Fa = []
 let criadiv = document.createElement('div')
 
 
@@ -35,9 +36,9 @@ QualiOr = false
 QuantDis = false
 
 
-let Vet = ["Grau de Escolaridade", "Ensino Superior", "Ensino Médio", "Ensino Fundamental", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "Ensino Superior", "Ensino Superior" , "Ensino Médio", "Ensino Médio", "Ensino Médio", "muito bom", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "pessimo", "Ensino Fundamental", "Ensino Médio","Ensino Médio", "Ensino Médio"]
+///let Vet = ["Grau de Escolaridade", "Ensino Superior", "Ensino Médio", "Ensino Fundamental", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "Ensino Superior", "Ensino Superior" , "Ensino Médio", "Ensino Médio", "Ensino Médio", "muito bom", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "pessimo", "Ensino Fundamental", "Ensino Médio","Ensino Médio", "Ensino Médio"]
 
-//let Vet = ["111", "90", "121", "105", "122", "61", "128", "112", "128", "93", "108", "138", "88", "110", "112", "112", "97", "128", "102", "125", "87", "119", "104", "116", "96", "114", "107", "113", "80", "113", "123", "95", "115", "70", "115", "101", "114", "127", "92", "103", "78", "118"]
+let Vet = ["111", "90", "121", "105", "122", "61", "128", "112", "128", "93", "108", "138", "88", "110", "112", "112", "97", "128", "102", "125", "87", "119", "104", "116", "96", "114", "107", "113", "80", "113", "123", "95", "115", "70", "115", "101", "114", "127", "92", "103", "78", "118"]
 
 let Obj = {
     Titulo: "",
@@ -76,7 +77,7 @@ let Calcular = () =>{
 
     const secao = document.querySelector('section')
 
-    if (QualiNo){
+    if (false){
         Objeto()
         for(Atual in Obj.Itens){
             criadiv.innerHTML +=  Atual + " Tendo: "+ Obj.Itens[Atual] + '<br/>'
@@ -92,7 +93,7 @@ let Calcular = () =>{
         console.log(G)
 
 
-    }else if (QualOrdinal) {
+    }else if (false) {
         Objeto()
         // Devido a falta do banco de dados disponível, o metodo utilizado será sempre o anterior, como se ocorresse um erro
         // O codigo que iria ser utilizado para uma tentativa de subistituição está disponicel no arquvivo "utilizar depois ou removidos"
@@ -111,7 +112,7 @@ let Calcular = () =>{
                 }
         }
 
-    }else if (QtDiscreta) {
+    }else if (false) {
         Objeto()
         contador = 0
         for(Atual in Obj.Itens){
@@ -260,7 +261,7 @@ let Calcular = () =>{
         criadiv.innerHTML += "Título da pesquisa: " + Obj.Titulo + '<br/>' + '<br/>'
 
         for(var Atual = 0; Atual < I.length; Atual++){
-            if (Relativa){
+            if (true){
                 criadiv.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Relativa: "+ F[Atual] + '<br/>'
             }else{
                 criadiv.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Acumulada: "+ F[Atual] + '<br/>'
