@@ -26,9 +26,9 @@ let passou = false
 let I = []
 let G = []
 let soma
-let Fc = []
+let Fr = []
 let Fa = []
-let criadiv = document.createElement('div')
+let criaitem = document.createElement('th')
 
 
 QualiNo = true
@@ -75,12 +75,12 @@ let Calcular = () =>{
     
     
 
-    const secao = document.querySelector('section')
+    const tabela = document.querySelector('tr')
 
     if (false){
         Objeto()
         for(Atual in Obj.Itens){
-            criadiv.innerHTML +=  Atual + " Tendo: "+ Obj.Itens[Atual] + '<br/>'
+            criaitem.innerHTML +=  Atual + " Tendo: "+ Obj.Itens[Atual] + '<br/>'
         }
 
         contador = 0
@@ -98,17 +98,17 @@ let Calcular = () =>{
         // Devido a falta do banco de dados disponível, o metodo utilizado será sempre o anterior, como se ocorresse um erro
         // O codigo que iria ser utilizado para uma tentativa de subistituição está disponicel no arquvivo "utilizar depois ou removidos"
 
-        criadiv.innerHTML += "Tipo da pesquisa: " + "Qualitativa Ordinal" + '<br/>'
-        criadiv.innerHTML += "Título da pesquisa: " + Obj.Titulo + '<br/>' + '<br/>'
+        criaitem.innerHTML += "Tipo da pesquisa: " + "Qualitativa Ordinal" + '<br/>'
+        criaitem.innerHTML += "Título da pesquisa: " + Obj.Titulo + '<br/>' + '<br/>'
 
         switch (caso){
             case 1:
             case 2:
             case 0:
                 alert("Esse tipo não pode ser utilizado com as informações passadas, Utilizaremos o Metodo Qualitativo Nomimal...")
-                criadiv.innerHTML +=  "Novo tipo da pesquisa:" + " Sendo agora qualitativa nominal: " + '<br/>'
+                criaitem.innerHTML +=  "Novo tipo da pesquisa:" + " Sendo agora qualitativa nominal: " + '<br/>'
                 for(Atual in Obj.Itens){
-                    criadiv.innerHTML +=  Atual + " Tendo: "+ Obj.Itens[Atual] + '<br/>'
+                    criaitem.innerHTML +=  Atual + " Tendo: "+ Obj.Itens[Atual] + '<br/>'
                 }
         }
 
@@ -142,28 +142,24 @@ let Calcular = () =>{
             soma = soma + item
         }
         contador = 0
-        if (Relativa){
             for(item of I){
-                F[contador] = (item / soma) * 100
-            }
-        }else{
-            for(item of I){
+                Fr[contador] = (item / soma) * 100
+
                 if (contador == 0){
-                    F[contador] = (item / soma) * 100
+                    Fa[contador] = (item / soma) * 100
                 }else{
-                    F[contador] = (item / soma) * 100 + F[contador - 1] 
+                    Fa[contador] = (item / soma) * 100 + F[contador - 1] 
                 }
             }
-        }
 
-        criadiv.innerHTML += "Tipo da pesquisa: " + "Quantitativa Discreta" + '<br/>'
-        criadiv.innerHTML += "Título da pesquisa: " + Obj.Titulo + '<br/>' + '<br/>'
+        criaitem.innerHTML += "Tipo da pesquisa: " + "Quantitativa Discreta" + '<br/>'
+        criaitem.innerHTML += "Título da pesquisa: " + Obj.Titulo + '<br/>' + '<br/>'
 
         for(var Atual = 0; Atual < I.length; Atual++){
             if (Relativa){
-                criadiv.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Relativa: "+ F[Atual] + '<br/>'
+                criaitem.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Relativa: "+ F[Atual] + '<br/>'
             }else{
-                criadiv.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Acumulada: "+ F[Atual] + '<br/>'
+                criaitem.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Acumulada: "+ F[Atual] + '<br/>'
             }
         }
 
@@ -240,35 +236,29 @@ let Calcular = () =>{
         }
         
         contador = 0
-        if (Relativa){
             for(item of I){
-                F[contador] = (item / soma) * 100
-                contador++
-            }
-        }else{
-            for(item of I){
+                Fr[contador] = (item / soma) * 100
+                
                 if (contador == 0){
-                    F[contador] = (item / soma) * 100
+                    Fa[contador] = (item / soma) * 100
                 }else{
-                    F[contador] = (item / soma) * 100 + F[contador - 1] 
+                    Fa[contador] = (item / soma) * 100 + Fa[contador - 1] 
                 }
-                contador++
+                contador ++
             }
-            
-        }
 
-        criadiv.innerHTML += "Tipo da pesquisa: " + "Quantitativa Discreta" + '<br/>'
-        criadiv.innerHTML += "Título da pesquisa: " + Obj.Titulo + '<br/>' + '<br/>'
+        criaitem.innerHTML += "Tipo da pesquisa: " + "Quantitativa Discreta"
+        tabela.createElement = criaitem
+        criaitem.innerHTML += "Título da pesquisa: " + Obj.Titulo
+        tabela.createElement = criaitem
 
         for(var Atual = 0; Atual < I.length; Atual++){
-            if (true){
-                criadiv.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Relativa: "+ F[Atual] + '<br/>'
-            }else{
-                criadiv.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Acumulada: "+ F[Atual] + '<br/>'
-            }
+            tabela.createElement =  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Relativa: "+ Fr[Atual] + " Frquência Acumulada: "+ Fa[Atual] + '<br/>'
+                
         }
-        console.log(F)
+        console.log(Fr)
+        console.log(Fa)
     }
 
-    secao.appendChild(criadiv)
+    
 }
