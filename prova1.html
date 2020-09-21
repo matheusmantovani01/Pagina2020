@@ -1,0 +1,185 @@
+
+<a href="Graficos.html" target="page" id="CalculaA" >  
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Documento Modelo</title>
+   <style>
+      body {
+         position: absolute;
+         height: 100%;
+         width: 100%;
+         margin: 0;
+         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+         font-size: 12pt;
+         line-height: 18pt;
+         color: #444;
+         background-color: lightsalmon;         
+         padding: 0;
+      }
+      input, select, button {
+         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+         font-size: 12pt;
+      }
+      button {
+         font-size: 20pt;
+         font-style: bold;
+      }
+      #container {
+         margin: 10vh 10vw;
+         background-color: rgba(255, 255, 255, 0.9);
+         padding: 40px;
+         border-radius: 20px;
+         box-shadow: 4px 4px rgba(0, 0, 0, 0.15) 
+      }
+      label {
+         display: block;
+      }
+      div div {
+         margin: 20px;
+         display: inline-block;
+      }
+      div.linha {
+         display: block;
+         text-align: center;
+      }
+      #resultado {
+         background-color: lightsalmon;
+         height: 40px;
+         border-radius: 10px;
+         box-shadow: inset 2px 2px rgba(0, 0, 0, 0.15);
+         color: white;
+         text-align: center;
+         font-size: 16px;
+         line-height: 40px;
+      }
+   </style>
+</head>
+<body>
+   <div id="container">
+      <h1>Gerador de cabeçalho</h1>
+      
+      <div>
+         <label>Localidade</label>
+         <input id="localidade" placeholder="Informe a localidade">
+      </div>
+
+      <div>
+         <label>Dia</label>
+         <select id="dia">
+            <option>(Selecione)</option>
+         </select>
+      </div>
+
+      <div>
+         <label>Mês</label>
+         <select id="mes">
+            <option>(Selecione)</option>
+         </select>
+      </div>
+
+      <div>
+         <label>Ano</label>
+         <select id="ano">
+            <option>(Selecione)</option>
+         </select>
+      </div>
+
+      <div id="" class="linha">
+            <p id="resultado"></p>
+      </div>
+
+      <div class="linha">
+         <button id="enviar">Enviar</button>
+      </div>
+
+   </div>
+
+   <script>
+      // Liga o modo "chato" do JS
+      // Não deixa usar variáveis sem let ou var
+      'use strict'
+      let Enviar = document.getElementById('enviar')
+      let local = document.getElementById('localidade')
+      const dia = document.querySelector('#dia')
+      const mes = document.querySelector('#mes')
+      const ano = document.querySelector('#ano')
+      var enviado = document.getElementById('resultado')
+      let bissexto = 28
+      let rdia
+      let rmes
+      let rano
+
+      // Preenche dinamicamente o select do dia
+      // com números de 1 a 31
+      for(let i = 1; i <= 31; i++) {
+         let opt = document.createElement('option')
+         opt.innerText = i
+         dia.appendChild(opt)
+      }
+
+      for(let i = 1; i <= 12; i++) {
+         let opt = document.createElement('option')
+         opt.innerText = i
+         mes.appendChild(opt)
+      }
+
+      for(let i = 2020; i >= 1920; i--) {
+         let opt = document.createElement('option')
+         opt.innerText = i
+         ano.appendChild(opt)
+      }
+
+      function montar() {
+
+         let valido = true
+
+         if (localidade.value == ""){
+            valido = false
+            alert('Local inválido por favor Insíra um local')
+         }
+
+         if(dia.selectedIndex <= 0){
+            valido=false
+            alert('Escolha um dia um dia')
+            rdia= dia.selectedIndex
+         }
+
+         if(mes.selectedIndex <= 0){
+            valido=false
+            alert('Escolha um dia um mês')
+            rmes= mes.selectedIndex
+         }
+
+         if(ano.selectedIndex <= 0){
+            valido=false
+            alert('Escolha um dia um ano')
+            rano= ano.selectedIndex 
+         
+         }
+
+         if ((ano.value%4 == 0) && (ano.value%100 != 0)){
+            bissexto = 29
+         }
+         else {
+            bissexto = 28
+         }
+
+         if((dia.selectedIndex > 30 &&(mes.selectedIndex == 4 || mes.selectedIndex== 6)) || ((dia.selectedIndex > bissexto) && (mes.selectedIndex == 2))){
+            valido=false
+            alert('Escolha um dia possível para este mês')
+         }
+
+         if(valido) {
+               enviado.innerText = ' Bem-Vindo, estaos em: ' + local.value + ', no dia ' + dia.value  + ', do mês ' + mes.value + ', no ano de ' + + ano.value
+         }
+
+      }
+
+      Enviar.addEventListener('click', montar)
+
+   </script>
+</body>
+</html>

@@ -17,6 +17,11 @@ const Acumulada   =  document.getElementById("Acumulada")//Acumulada
 const Amostra     =  document.getElementById("Amostra ")//Amostra
 const Popula  =  document.getElementById("Popula")//Popula
 
+let media
+let moda
+let modas
+let mediana
+let medianas
 let caso = 0
 let it
 let contador = 0
@@ -25,6 +30,7 @@ let guardar2
 let passou = false
 let I = []
 let G = []
+let M = []
 let soma
 let Frs = []
 let Fas = []
@@ -97,7 +103,7 @@ let Calcular = () =>{
         soma = Vet.length
         console.log(soma)
         contador = 0
-        
+
             for(item of I){
                 Fr[contador] = (item / soma) * 100
                 Frs[contador] = item
@@ -111,6 +117,32 @@ let Calcular = () =>{
                 contador ++
             }
 
+            media = "não tem"
+            mediana = parseInt(Vet.length/2)
+            medianas = 0
+            moda = -99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+            for(moderar in I){
+                medianas = medianas + I[moderar]
+                if(passou == false){
+                    if(medianas >= mediana){
+                        mediana = G[moderar]
+                        passou = true
+                    }
+                }
+                if(I[moderar] > moda){
+                    moda = I[moderar]
+                    modas = moderar
+                }
+            }
+            moda = G[modas]
+            console.log(media)
+            console.log(moda)
+            console.log(mediana)
+            
+            
+            
+
+            
     }else if (false) {
         Objeto()
         // Devido a falta do banco de dados disponível, o metodo utilizado será sempre o anterior, como se ocorresse um erro
@@ -130,7 +162,48 @@ let Calcular = () =>{
                 }
         }
 
+        soma = Vet.length
+        console.log(soma)
+        contador = 0
+            for(item of I){
+                Fr[contador] = (item / soma) * 100
+                Frs[contador] = item
+                if (contador == 0){
+                    Fa[contador] = (item / soma) * 100
+                    Fas[contador] = item 
+                }else{
+                    Fa[contador] = (item / soma) * 100 + Fa[contador - 1] 
+                    Fas[contador] = item + Fas[contador - 1] 
+                }
+                contador ++
+            }
+
+            media = "não tem"
+            mediana = parseInt(Vet.length/2)
+            medianas = 0
+            moda = -99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+            for(moderar in I){
+                medianas = medianas + I[moderar]
+                if(passou == false){
+                    if(medianas >= mediana){
+                        mediana = G[moderar]
+                        passou = true
+                    }
+                }
+                if(I[moderar] > moda){
+                    moda = I[moderar]
+                    modas = moderar
+                }
+            }
+            moda = G[modas]
+            console.log(media)
+            console.log(moda)
+            console.log(mediana)
+
     }else if (false) {
+        for (let prop in Vet) {
+            Vet[prop] = parseFloat(Vet[prop])
+        }
         Objeto()
         contador = 0
         for(Atual in Obj.Itens){
@@ -171,6 +244,32 @@ let Calcular = () =>{
                 }
                 contador ++
             }
+
+            for(mediar of Vet){
+                media = media + mediar
+            }
+            media = media/Vet.length
+            mediana = parseInt(Vet.length/2)
+            medianas = 0
+            moda = -99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+            for(moderar in I){
+                medianas = medianas + I[moderar]
+                if(passou == false){
+                    if(medianas >= mediana){
+                        mediana = G[moderar]
+                        passou = true
+                    }
+                }
+                if(I[moderar] > moda){
+                    moda = I[moderar]
+                    modas = moderar
+                }
+            }
+            moda = G[modas]
+            console.log(media)
+            console.log(moda)
+            console.log(mediana)
+
         criaitem.innerHTML += "Tipo da pesquisa: " + "Quantitativa Discreta" + '<br/>'
         criaitem.innerHTML += "Título da pesquisa: " + Obj.Titulo + '<br/>' + '<br/>'
 
@@ -218,6 +317,7 @@ let Calcular = () =>{
         let nome
         guardar = Vet[0]
         let soma = 0
+        contador = 0
         for(Add in Vet){
 
            if(Vet[Add] < guardar + 13){
@@ -227,11 +327,13 @@ let Calcular = () =>{
                 }else{
                     Obj.Itens[nome] ++
                 }
-                
+                M[contador] = (guardar*2 + 13) /2
            }else {
                guardar = Vet[Add]
                nome = String(guardar + "|---" + (guardar + 13))
                Obj.Itens[nome] = 1
+               contador ++
+               M[contador] = (guardar*2 + 13) /2
            }
         }
         console.log(Obj)
@@ -261,6 +363,16 @@ let Calcular = () =>{
                 }
                 contador ++
             }
+        
+        contador = 0
+        media = 0
+        for(mediar of M){
+            media += (mediar * I[contador])
+            contador ++
+        }
+        media = media/Vet.length
+        console.log(M)
+        console.log(media)
 
         criaitem.innerHTML += "Tipo da pesquisa: " + "Quantitativa Discreta"
         tabela.createElement = criaitem

@@ -8,68 +8,87 @@
     <title>Manual</title>
 </head>
 <body>
-   
-<div id="ManualIframe">
-    <div id="InputText"> 
-    <label for="VarNome" id="LabelNome">Nome: </label>
-    <input type="text" id="VarNome" name="NomeSele"> <!--Input nome da variavel-->
-
-    <label for="VarValor" id="LabelValor">Valor:</label>    <input type="text" id="VarValor">
-    </div>
-
-   <div id="FormInput">
-    <div id="Quali"><!--Option Button Qualitativa-->
-        <h3>Qualitativa</h3> 
-        <label for="QualNominal">
-        <input type="radio" id="QualNominal" name="Inputs" value="value">
-        Nominal</label>
-
-        <label for="QualOrdinal">
-        <input type="radio" id="QualOrdinal" name="Inputs" >
-        Ordinal</label><br>
-
-    </div>
-    <br>
-    <div id="Quant"><!--Option Button Quanti-->
-        <h3>Quantitativa</h3> 
-        <label for="QtDiscreta"> 
-        <input type="radio" id="QtDiscreta" name="Inputs">
-         Discreta</label>
-
-        <label for="QtContinua">
-        <input type="radio" id="QtContinua" name="Inputs" >
-        Continua</label>
-        <br>
-    </div>
-    <br>
-    <div id="Frequencia"><!--Option Button Quanti-->
-        <h3>Frequências</h3> 
-        <label for="Relativa"> 
-        <input type="radio" id="Relativa" name="Inputs1" >
-        Relativa</label>
-
-        <label for="Acumulada">
-        <input type="radio" id="Acumulada" name="Inputs1" >
-        Acumulada</label><br>
-    </div>
-    <br>
-    <div id="AmoPopu"> <!-- Amostra e População-->
-        <label for="Amostra">
-        <input type="radio" id="Amostra" name="AmoPopu" >
-        Amostra</label>
-        <label for="Popula">
-        <input type="radio" id="Popula" name="AmoPopu" >
-        População</label><br>
-    </div>
     
-    <div id="Botoes2"><!-- Downside Button-->
-        <a href="Graficos.html" target="page" >  <button id="Calcular" >Calcular</button></a>
-      <a href="Index.html" target="_top">  <button id="Limpar">Voltar</button></a>
+    <div id="ManualIframe">
+        <div id="InputText"> 
+            <label for="VarNome" id="LabelNome">Nome: </label>
+            <input type="text" id="VarNome" name="NomeSele"> <!--Input nome da variavel-->
+
+            <label for="VarValor" id="LabelValor">Valor:</label>    <input type="text" id="VarValor">
+        </div>
+
+        <div id="FormInput">
+            <div id="Quali"><!--Option Button Qualitativa-->
+                <h3>Qualitativa</h3> 
+                <label for="QualNominal">
+                <input type="radio" id="QualNominal" name="Inputs" value="value">
+                Nominal</label>
+
+                <label for="QualOrdinal">
+                <input type="radio" id="QualOrdinal" name="Inputs" >
+                Ordinal</label><br>
+
+            </div>
+            <br>
+            <div id="Quant"><!--Option Button Quanti-->
+                <h3>Quantitativa</h3> 
+                <label for="QtDiscreta"> 
+                <input type="radio" id="QtDiscreta" name="Inputs">
+                Discreta</label>
+
+                <label for="QtContinua">
+                <input type="radio" id="QtContinua" name="Inputs" >
+                Continua</label>
+                <br>
+            </div>
+            <br>
+            <div id="Frequencia"><!--Option Button Quanti-->
+                <h3>Frequências</h3> 
+                <label for="Relativa"> 
+                <input type="radio" id="Relativa" name="Inputs1" >
+                Relativa</label>
+
+                <label for="Acumulada">
+                <input type="radio" id="Acumulada" name="Inputs1" >
+                Acumulada</label><br>
+            </div>
+            <br>
+            <div id="AmoPopu"> <!-- Amostra e População-->
+                <label for="Amostra">
+                <input type="radio" id="Amostra" name="AmoPopu" >
+                Amostra</label>
+                <label for="Popula">
+                <input type="radio" id="Popula" name="AmoPopu" >
+                População</label><br>
+            </div>
+            
+            <div id="Botoes2"><!-- Downside Button-->
+                <button id="Calcular" >Calcular</button></a>
+                <a href="Index.html" target="_top">  <button id="Limpar">Voltar</button></a>
+            </div>
+        </div>
     </div>
-</div>
-</div>
+    <script>
+        let Enviar = document.getElementById('Calcular')
+        const nomezinho = document.querySelector('#VarNome')
+        const valorzinho = document.querySelector('#VarNome')
+        const qualit = document.querySelector('#QualNominal')
+        const quantit = document.querySelector('#QualOrdinal')
+        const freqrel = document.querySelector('#Relativa')
+        const freqacu = document.querySelector('#Acumulada')
+        const freqamo = document.querySelector('#Amostra')
+        const freqpop = document.querySelector('#Popula')
+        function receber(){
+            let valido = true
+
+            if (nomezinho.value == ""){
+            valido = false
+            alert('Nome inválido, por favor Insíra um nome válido')
+            }
+        }
+        Enviar.addEventListener('click', receber)
+    
 </body>
 </html>
-
 
 
