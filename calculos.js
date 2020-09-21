@@ -26,6 +26,8 @@ let passou = false
 let I = []
 let G = []
 let soma
+let Frs = []
+let Fas = []
 let Fr = []
 let Fa = []
 let criaitem = document.createElement('th')
@@ -92,6 +94,22 @@ let Calcular = () =>{
         console.log(I)
         console.log(G)
 
+        soma = Vet.length
+        console.log(soma)
+        contador = 0
+        
+            for(item of I){
+                Fr[contador] = (item / soma) * 100
+                Frs[contador] = item
+                if (contador == 0){
+                    Fa[contador] = (item / soma) * 100
+                    Fas[contador] = item 
+                }else{
+                    Fa[contador] = (item / soma) * 100 + Fa[contador - 1] 
+                    Fas[contador] = item + Fas[contador - 1] 
+                }
+                contador ++
+            }
 
     }else if (false) {
         Objeto()
@@ -138,20 +156,21 @@ let Calcular = () =>{
         console.log(G)
 
         
-        for(item of I){
-            soma = soma + item
-        }
+        soma = Vet.length
+        console.log(soma)
         contador = 0
             for(item of I){
                 Fr[contador] = (item / soma) * 100
-
+                Frs[contador] = item
                 if (contador == 0){
                     Fa[contador] = (item / soma) * 100
+                    Fas[contador] = item 
                 }else{
-                    Fa[contador] = (item / soma) * 100 + F[contador - 1] 
+                    Fa[contador] = (item / soma) * 100 + Fa[contador - 1] 
+                    Fas[contador] = item + Fas[contador - 1] 
                 }
+                contador ++
             }
-
         criaitem.innerHTML += "Tipo da pesquisa: " + "Quantitativa Discreta" + '<br/>'
         criaitem.innerHTML += "Título da pesquisa: " + Obj.Titulo + '<br/>' + '<br/>'
 
@@ -215,7 +234,6 @@ let Calcular = () =>{
                Obj.Itens[nome] = 1
            }
         }
-        Obj.Itens["Total"] = Vet.length
         console.log(Obj)
 
         contador = 0
@@ -227,22 +245,19 @@ let Calcular = () =>{
         console.log(I)
         console.log(G)
 
-        contador = 1
-        for(item of I){
-            if(contador < I.length){
-                soma = soma + item
-            }
-            contador ++
-        }
-        
+    
+        soma = Vet.length
+        console.log(soma)
         contador = 0
             for(item of I){
                 Fr[contador] = (item / soma) * 100
-                
+                Frs[contador] = item
                 if (contador == 0){
                     Fa[contador] = (item / soma) * 100
+                    Fas[contador] = item 
                 }else{
                     Fa[contador] = (item / soma) * 100 + Fa[contador - 1] 
+                    Fas[contador] = item + Fas[contador - 1] 
                 }
                 contador ++
             }
@@ -253,11 +268,13 @@ let Calcular = () =>{
         tabela.createElement = criaitem
 
         for(var Atual = 0; Atual < I.length; Atual++){
-            tabela.createElement =  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Relativa: "+ Fr[Atual] + " Frquência Acumulada: "+ Fa[Atual] + '<br/>'
+            tabela.appendChild=  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Relativa: "+ Fr[Atual] + " Frquência Acumulada: "+ Fa[Atual] +  " Frquência Relativa Simples: "+ Frs[Atual] + "/" + soma + " Frquência Acumulada Simples: "+ Fas[Atual] + "/" + soma  + '<br/>' +'<br/>'
                 
         }
         console.log(Fr)
         console.log(Fa)
+        console.log(Frs)
+        console.log(Fas)
     }
 
     
