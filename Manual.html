@@ -69,26 +69,25 @@
         </div>
     </div>
     <script>
-        let Enviar = document.getElementById('Calcular')
-        const nomezinho = document.querySelector('#VarNome')
-        const valorzinho = document.querySelector('#VarNome')
-        const qualit = document.querySelector('#QualNominal')
-        const quantit = document.querySelector('#QualOrdinal')
-        const freqrel = document.querySelector('#Relativa')
-        const freqacu = document.querySelector('#Acumulada')
-        const freqamo = document.querySelector('#Amostra')
-        const freqpop = document.querySelector('#Popula')
+        let Enviar = document.getElementById('Calcular');
+        const nomezinho = document.querySelector('#VarNome');
+        const valorzinho = document.querySelector('#VarNome');
+        const qualit = document.querySelector('#QualNominal');
+        const quantit = document.querySelector('#QualOrdinal');
+        const freqrel = document.querySelector('#Relativa');
+        const freqacu = document.querySelector('#Acumulada');
+        const freqamo = document.querySelector('#Amostra');
+        const freqpop = document.querySelector('#Popula');
         function receber(){
             let valido = true
 
             if (nomezinho.value == ""){
             valido = false
-            alert('Nome inválido, por favor Insíra um nome válido')
+            alert('Nome inválido, por favor Insíra um nome válido');
             }
         }
-        Enviar.addEventListener('click', receber)
-    
+        Enviar.addEventListener('click', receber);
+    </script>
 </body>
 </html>
-
 
