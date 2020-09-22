@@ -111,27 +111,6 @@
       let rdia
       let rmes
       let rano
-
-      // Preenche dinamicamente o select do dia
-      // com números de 1 a 31
-      for(let i = 1; i <= 31; i++) {
-         let opt = document.createElement('option')
-         opt.innerText = i
-         dia.appendChild(opt)
-      }
-
-      for(let i = 1; i <= 12; i++) {
-         let opt = document.createElement('option')
-         opt.innerText = i
-         mes.appendChild(opt)
-      }
-
-      for(let i = 2020; i >= 1920; i--) {
-         let opt = document.createElement('option')
-         opt.innerText = i
-         ano.appendChild(opt)
-      }
-
       function montar() {
 
          let valido = true
@@ -179,7 +158,25 @@
       }
 
       Enviar.addEventListener('click', montar)
+      // Preenche dinamicamente o select do dia
+      // com números de 1 a 31
+      for(let i = 1; i <= 31; i++) {
+         let opt = document.createElement('option')
+         opt.innerText = i
+         dia.appendChild(opt)
+      }
 
+      for(let i = 1; i <= 12; i++) {
+         let opt = document.createElement('option')
+         opt.innerText = i
+         mes.appendChild(opt)
+      }
+
+      for(let i = 2020; i >= 1920; i--) {
+         let opt = document.createElement('option')
+         opt.innerText = i
+         ano.appendChild(opt)
+      }
    </script>
 </body>
 </html>

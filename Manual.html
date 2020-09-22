@@ -63,7 +63,7 @@
             </div>
             
             <div id="Botoes2"><!-- Downside Button-->
-                <button id="Calcular" >Calcular</button></a>
+                <a href="Graficos.html" target="page" id="CalculaA" ></a><button id="Calcular" >Calcular</button></a>
                 <a href="Index.html" target="_top">  <button id="Limpar">Voltar</button></a>
             </div>
         </div>
@@ -84,6 +84,21 @@
             if (nomezinho.value == ""){
             valido = false
             alert('Nome inválido, por favor Insíra um nome válido');
+            }
+            if (valorzinho.value == ""){
+            valido = false
+            alert('Valor inválido, por favor Insíra um Valor válido')
+            }
+            if((qualitno.checked) || (qualitor.checked) || (quantdis.checked) || (quantcon.checked)) {}else{
+            valido = false
+            alert('Nao foi selecionado nenhuma opção!')
+            }
+            if((freqrel.checked) || (freqacu.checked) || (freqamo.checked) || (freqpop.checked)) {}else{
+            valido = false
+            alert('Nao foi selecionado nenhuma opção de FREQUÊNCIA!')
+            }
+            if (valido){
+
             }
         }
         Enviar.addEventListener('click', receber);
