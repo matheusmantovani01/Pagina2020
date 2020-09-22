@@ -72,8 +72,10 @@
         let Enviar = document.getElementById('Calcular')
         const nomezinho = document.querySelector('#VarNome')
         const valorzinho = document.querySelector('#VarNome')
-        const qualit = document.querySelector('#QualNominal')
-        const quantit = document.querySelector('#QualOrdinal')
+        const qualitno = document.querySelector('#QualNominal')
+        const qualitor = document.querySelector('#QualOrdinal')
+        const quantdis = document.querySelector('#QtDiscreta')
+        const quantcon = document.querySelector('#QtContinua')        
         const freqrel = document.querySelector('#Relativa')
         const freqacu = document.querySelector('#Acumulada')
         const freqamo = document.querySelector('#Amostra')
@@ -85,9 +87,24 @@
             valido = false
             alert('Nome inválido, por favor Insíra um nome válido')
             }
+            if (valorzinho.value == ""){
+            valido = false
+            alert('Valor inválido, por favor Insíra um Valor válido')
+            }
+            if((qualitno.checked) || (qualitor.checked) || (quantdis.checked) || (quantcon.checked)) {}else{
+            valido = false
+            alert('Nao foi selecionado nenhuma opção!')
+            }
+            if((freqrel.checked) || (freqacu.checked) || (freqamo.checked) || (freqpop.checked)) {}else{
+            valido = false
+            alert('Nao foi selecionado nenhuma opção de FREQUÊNCIA!')
+            }
+            if (valido){
+                
+            }
         }
         Enviar.addEventListener('click', receber)
-    
+    </script>
 </body>
 </html>
 
