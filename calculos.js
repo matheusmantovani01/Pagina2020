@@ -92,9 +92,6 @@ let Calcular = () =>{
         tipo = "pie"
 
         Objeto()
-        for(Atual in Obj.Itens){
-            criaitem.innerHTML +=  Atual + " Tendo: "+ Obj.Itens[Atual] + '<br/>'
-        }
 
         contador = 0
         for(Atual in Obj.Itens){
@@ -154,19 +151,9 @@ let Calcular = () =>{
         // Devido a falta do banco de dados disponível, o metodo utilizado será sempre o anterior, como se ocorresse um erro
         // O codigo que iria ser utilizado para uma tentativa de subistituição está disponicel no arquvivo "utilizar depois ou removidos"
 
-        criaitem.innerHTML += "Tipo da pesquisa: " + "Qualitativa Ordinal" + '<br/>'
-        criaitem.innerHTML += "Título da pesquisa: " + Obj.Titulo + '<br/>' + '<br/>'
-
-        switch (caso){
-            case 1:
-            case 2:
-            case 0:
+        
                 alert("Esse tipo não pode ser utilizado com as informações passadas, Utilizaremos o Metodo Qualitativo Nomimal...")
-                criaitem.innerHTML +=  "Novo tipo da pesquisa:" + " Sendo agora qualitativa nominal: " + '<br/>'
-                for(Atual in Obj.Itens){
-                    criaitem.innerHTML +=  Atual + " Tendo: "+ Obj.Itens[Atual] + '<br/>'
-                }
-        }
+               
 
         soma = Vet.length
         console.log(soma)
@@ -277,16 +264,7 @@ let Calcular = () =>{
             console.log(moda)
             console.log(mediana)
 
-        criaitem.innerHTML += "Tipo da pesquisa: " + "Quantitativa Discreta" + '<br/>'
-        criaitem.innerHTML += "Título da pesquisa: " + Obj.Titulo + '<br/>' + '<br/>'
-
-        for(var Atual = 0; Atual < I.length; Atual++){
-            if (Relativa){
-                criaitem.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Relativa: "+ F[Atual] + '<br/>'
-            }else{
-                criaitem.innerHTML +=  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Acumulada: "+ F[Atual] + '<br/>'
-            }
-        }
+        
 
     }else {
 
