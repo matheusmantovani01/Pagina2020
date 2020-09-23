@@ -17,6 +17,9 @@ const Acumulada   =  document.getElementById("Acumulada")//Acumulada
 const Amostra     =  document.getElementById("Amostra ")//Amostra
 const Popula  =  document.getElementById("Popula")//Popula
 
+var tabela = document.querySelector("tbody")
+
+let tipo
 let media
 let moda
 let modas
@@ -46,7 +49,7 @@ QuantDis = false
 
 ///let Vet = ["Grau de Escolaridade", "Ensino Superior", "Ensino Médio", "Ensino Fundamental", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "Ensino Superior", "Ensino Superior" , "Ensino Médio", "Ensino Médio", "Ensino Médio", "muito bom", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "pessimo", "Ensino Fundamental", "Ensino Médio","Ensino Médio", "Ensino Médio"]
 
-let Vet = ["111", "90", "121", "105", "122", "61", "128", "112", "128", "93", "108", "138", "88", "110", "112", "112", "97", "128", "102", "125", "87", "119", "104", "116", "96", "114", "107", "113", "80", "113", "123", "95", "115", "70", "115", "101", "114", "127", "92", "103", "78", "118"]
+let Vet = ["Roi", "111", "90", "121", "105", "122", "61", "128", "112", "128", "93", "108", "138", "88", "110", "112", "112", "97", "128", "102", "125", "87", "119", "104", "116", "96", "114", "107", "113", "80", "113", "123", "95", "115", "70", "115", "101", "114", "127", "92", "103", "78", "118"]
 
 let Obj = {
     Titulo: "",
@@ -86,6 +89,8 @@ let Calcular = () =>{
     const tabela = document.querySelector('tr')
 
     if (false){
+        tipo = "pie"
+
         Objeto()
         for(Atual in Obj.Itens){
             criaitem.innerHTML +=  Atual + " Tendo: "+ Obj.Itens[Atual] + '<br/>'
@@ -144,6 +149,7 @@ let Calcular = () =>{
 
             
     }else if (false) {
+        tipo = "pie"
         Objeto()
         // Devido a falta do banco de dados disponível, o metodo utilizado será sempre o anterior, como se ocorresse um erro
         // O codigo que iria ser utilizado para uma tentativa de subistituição está disponicel no arquvivo "utilizar depois ou removidos"
@@ -201,6 +207,7 @@ let Calcular = () =>{
             console.log(mediana)
 
     }else if (false) {
+        tipo = "bar"
         for (let prop in Vet) {
             Vet[prop] = parseFloat(Vet[prop])
         }
@@ -283,6 +290,10 @@ let Calcular = () =>{
 
     }else {
 
+        tipo = "bar"
+
+        Obj.Titulo = Vet.shift()
+
             for (let prop in Vet) {
                 Vet[prop] = parseFloat(Vet[prop])
             }
@@ -320,20 +331,20 @@ let Calcular = () =>{
         contador = 0
         for(Add in Vet){
 
-           if(Vet[Add] < guardar + 13){
-                nome = String(guardar + "|---" + (guardar + 13))
+           if(Vet[Add] < guardar + intervalo){
+                nome = String(guardar + "|---" + (guardar + intervalo))
                 if (guardar == Vet[Add]){
                     Obj.Itens[nome] = 1
                 }else{
                     Obj.Itens[nome] ++
                 }
-                M[contador] = (guardar*2 + 13) /2
+                M[contador] = (guardar*2 + intervalo) /2
            }else {
                guardar = Vet[Add]
-               nome = String(guardar + "|---" + (guardar + 13))
+               nome = String(guardar + "|---" + (guardar + intervalo))
                Obj.Itens[nome] = 1
                contador ++
-               M[contador] = (guardar*2 + 13) /2
+               M[contador] = (guardar*2 + intervalo) /2
            }
         }
         console.log(Obj)
@@ -370,24 +381,109 @@ let Calcular = () =>{
             media += (mediar * I[contador])
             contador ++
         }
+
+        passou = false
         media = media/Vet.length
-        console.log(M)
         console.log(media)
+        mediana = 0
+        contador = 0
+        guardar = 0
 
-        criaitem.innerHTML += "Tipo da pesquisa: " + "Quantitativa Discreta"
-        tabela.createElement = criaitem
-        criaitem.innerHTML += "Título da pesquisa: " + Obj.Titulo
-        tabela.createElement = criaitem
-
-        for(var Atual = 0; Atual < I.length; Atual++){
-            tabela.appendChild=  G[Atual] + " Tendo: "+ I[Atual] + " Frquência Relativa: "+ Fr[Atual] + " Frquência Acumulada: "+ Fa[Atual] +  " Frquência Relativa Simples: "+ Frs[Atual] + "/" + soma + " Frquência Acumulada Simples: "+ Fas[Atual] + "/" + soma  + '<br/>' +'<br/>'
-                
+        for(mediar of I){
+            console.log(mediar)
+            mediana += mediar
+            if(passou == false){
+                if(mediana >= (Vet.length / 2)){
+                    medianas = mediana - mediar
+                    guardar = mediar
+                    passou = true
+                }
+            }
+            contador ++
         }
+        
+        mediana = media +((((Vet.length / 2) - medianas) / guardar)* intervalo)
+        console.log(M)
+        console.log(mediana)
+        
+
+        contador = 0
+        guardar = -99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+        for(mediar of I){
+            if(mediar > guardar){
+                guardar = mediar
+                moda = M[contador]
+            }
+            contador ++
+        }
+        console.log(moda)
+
+
         console.log(Fr)
         console.log(Fa)
         console.log(Frs)
         console.log(Fas)
     }
 
+    var linha = document.createElement('tr');
+    var campo_nome = document.createElement('td');
+    var campo_Frs = document.createElement('td');
+    var campo_Fr = document.createElement('td');
+    var campo_Fas = document.createElement('td');
+    var campo_Fa = document.createElement('td');
+
+    var texto_nome = document.createTextNode(Obj.Titulo);
+    var texto_Frs = document.createTextNode("Frquência Relativa Simples:");
+    var texto_Fr = document.createTextNode("Frquência Relativa (%):");
+    var texto_Fas = document.createTextNode("Frquência Acumulada Simples:");
+    var texto_Fa = document.createTextNode("Frquência Acumulada (%):");
+
+    campo_nome.appendChild(texto_nome);
+    campo_Frs.appendChild(texto_Frs);
+    campo_Fr.appendChild(texto_Fr);
+    campo_Fas.appendChild(texto_Fas);
+    campo_Fa.appendChild(texto_Fa);
+
+    linha.appendChild(campo_nome);
+    linha.appendChild(campo_Frs);
+    linha.appendChild(campo_Fr);
+    linha.appendChild(campo_Fas);
+    linha.appendChild(campo_Fa);
+
+    linha.className = "tg"
+
+    tabela.appendChild(linha)
+
+    for(var Atual = 0; Atual < I.length; Atual++){
+        var linha = document.createElement('tr');
+        var campo_nome = document.createElement('td');
+        var campo_Frs = document.createElement('td');
+        var campo_Fr = document.createElement('td');
+        var campo_Fas = document.createElement('td');
+        var campo_Fa = document.createElement('td');
+
+        var texto_nome = document.createTextNode(G[Atual]);
+        var texto_Frs = document.createTextNode(Frs[Atual]);
+        var texto_Fr = document.createTextNode(Fr[Atual]);
+        var texto_Fas = document.createTextNode(Fas[Atual]);
+        var texto_Fa = document.createTextNode(Fa[Atual]);
+
+        campo_nome.appendChild(texto_nome);
+        campo_Frs.appendChild(texto_Frs);
+        campo_Fr.appendChild(texto_Fr);
+        campo_Fas.appendChild(texto_Fas);
+        campo_Fa.appendChild(texto_Fa);
+
+        linha.appendChild(campo_nome);
+        linha.appendChild(campo_Frs);
+        linha.appendChild(campo_Fr);
+        linha.appendChild(campo_Fas);
+        linha.appendChild(campo_Fa);
+
+        linha.className = "tg"
+
+        tabela.appendChild(linha)
+            
+    }
     
 }

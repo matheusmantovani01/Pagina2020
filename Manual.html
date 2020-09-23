@@ -63,13 +63,13 @@
             </div>
             
             <div id="Botoes2"><!-- Downside Button-->
-                <a href="Graficos.html" target="page" id="CalculaA" ></a><button id="Calcular" >Calcular</button></a>
+                <a href="Graficos.html" target="page" id="Calcular" ></a><button id="Calcular" >Calcular</button></a>
                 <a href="Index.html" target="_top">  <button id="Limpar">Voltar</button></a>
             </div>
         </div>
     </div>
     <script>
-        let Enviar = document.getElementById('Calcular');
+        let Enviar = document.querySelector('#Calcular');
         const nomezinho = document.querySelector('#VarNome');
         const valorzinho = document.querySelector('#VarNome');
         const qualit = document.querySelector('#QualNominal');
@@ -98,7 +98,7 @@
             alert('Nao foi selecionado nenhuma opção de FREQUÊNCIA!')
             }
             if (valido){
-
+               alert('ok') 
             }
         }
         Enviar.addEventListener('click', receber);

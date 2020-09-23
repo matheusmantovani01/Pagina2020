@@ -8,13 +8,24 @@
     <title>Document</title>
 </head>
 <body id="CorpoEnvio">
+    <script>
+        const reader = new FileReader()
 
-        <div id="ManualIframe">
-            <div id="EnviarIframe">   
-                <form action=> <!-- inserir arquivo--> 
-                    <input type="file" id="myFile" name="filename">                 
-                    </form>
-                </div>
+        function read(input) {
+            const csv = input.files[0]
+            reader.readAsText(csv)
+        }
+
+
+        reader.onload = function (e) {
+            let vetorcsv = document.querySelector('.output').innerText = e.target.result
+        } 
+  
+        </script>     
+          <div id="ManualIframe">
+                <input type="file" >
+                <div class="output"></div>
+                    
            
                 <div id="FormInput">
                     <div id="Quali"><!--Option Button Qualitativa-->
@@ -67,28 +78,32 @@
                     </div>
                 </div>
                 <script>
-                    let calculo = document.getElementById("Calcular")
-                    function xlsx(){
-                        table1.download("xlsx", "test.xlsx", {sheetName:"teste"});    
+                    let Enviar = document.getElementById('Calcular');
+                    const qualitno1 = document.querySelector('#QlN');
+                    const quantitor1 = document.querySelector('#QlO');
+                    const quantitidis1 = document.querySelector('#QtDiscreta');
+                    const quantitco1 = document.querySelector('#QtContinua');                    
+                    const freqrel1 = document.querySelector('#Relativa');
+                    const freqacu1 = document.querySelector('#Acumulada');
+                    const freqamo1 = document.querySelector('#Opt5');
+                    const freqpop1 = document.querySelector('#Opt6');
+                    function receber(){
+                        let valido = true
+                        if((qualitno1.checked) || (qualitor1.checked) || (quantitidis1.checked) || (quantitco1.checked)) {}else{
+                        valido = false
+                        alert('Nao foi selecionado nenhuma opção!')
+                        }
+                        if((freqrel1.checked) || (freqacu1.checked) || (freqamo1.checked) || (freqpop1.checked)) {}else{
+                        valido = false
+                        alert('Nao foi selecionado nenhuma opção de frequência!')
+                        }
+                        if (valido){
+                            
+                        }
+
+                        alert('teste')
                     }
-                    //set up XMLHttpRequest 
-                    var url = "test.xlsx";
-                    /* set up async GET request */
-                    var req = new XMLHttpRequest();
-                    req.open("GET", url, true);
-                    req.responseType = "arraybuffer";
-                    req.onload = function(e) {
-                    var data = new Uint8Array(req.response);
-                    var workbook = XLSX.read(data, {type:"array"});
-                    /* DO SOMETHING WITH workbook HERE */
-                    var first_sheet_name = workbook.SheetNames[0];
-                    /* Get worksheet */
-                    var worksheet = workbook.Sheets[first_sheet_name];
-                    console.log(XLSX.utils.sheet_to_json(worksheet));
-                    }
-                    req.send();
-                    calculo.addEventListener("click", xlsx)
+                    Enviar.addEventListener('click', receber);
                 </script>
-</body>
-</html>
+</tml>
 

@@ -8,6 +8,13 @@
     text-decoration: none;
     
 }
+#Tabela{
+  position: relative;
+  margin: 0 auto;
+  width: 400px;
+  padding: 100px;
+  left: 150px;
+}
 #Manual{
   display:block;
   text-decoration:none;
