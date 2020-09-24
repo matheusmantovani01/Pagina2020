@@ -464,4 +464,54 @@ let Calcular = () =>{
             
     }
     
+    var linha = document.createElement('tr');
+    var vazio = document.createElement('td');
+    var campo_Moda = document.createElement('td');
+    var campo_Media = document.createElement('td');
+    var campo_Mediana = document.createElement('td');
+    var vazio2 = document.createElement('td');
+
+    var texto_Moda = document.createTextNode("Moda");
+    var texto_Media = document.createTextNode("Media");
+    var texto_Mediana = document.createTextNode("Mediana");
+
+    campo_Moda.appendChild(texto_Moda);
+    campo_Media.appendChild(texto_Media);
+    campo_Mediana.appendChild(texto_Mediana);
+   
+    linha.appendChild(vazio);
+    linha.appendChild(campo_Moda);
+    linha.appendChild(campo_Media);
+    linha.appendChild(campo_Mediana);
+    linha.appendChild(vazio2);
+
+    linha.className = "tg"
+
+    tabela.appendChild(linha)
+
+    var linha = document.createElement('tr');
+    var vazio = document.createElement('td');
+    var campo_Moda = document.createElement('td');
+    var campo_Media = document.createElement('td');
+    var campo_Mediana = document.createElement('td');
+    var vazio2 = document.createElement('td');
+
+    var texto_Moda = document.createTextNode(moda);
+    var texto_Media = document.createTextNode(media);
+    var texto_Mediana = document.createTextNode(mediana);
+
+    campo_Moda.appendChild(texto_Moda);
+    campo_Media.appendChild(texto_Media);
+    campo_Mediana.appendChild(texto_Mediana);
+   
+    linha.appendChild(vazio);
+    linha.appendChild(campo_Moda);
+    linha.appendChild(campo_Media);
+    linha.appendChild(campo_Mediana);
+    linha.appendChild(vazio2);
+
+    linha.className = "tg"
+
+    tabela.appendChild(linha)
+  
 }
