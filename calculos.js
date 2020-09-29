@@ -40,6 +40,8 @@ let Fas = []
 let Fr = []
 let Fa = []
 let criaitem = document.createElement('th')
+let desvio
+let cofvaria
 
 
 QualiNo = true
@@ -59,16 +61,13 @@ let Obj = {
 }
 let Objeto = () =>{
     for(Verifica in Vet){
-        if (Verifica == 0){
-            Obj.Titulo = Vet[Verifica]
-        } else{
+        
             if(Obj.Itens.hasOwnProperty([Vet[Verifica]])){
                 Obj.Itens[Vet[Verifica]]++
             }else{
                 Obj.Itens[Vet[Verifica]] = 1
                 
             }
-        }
         console.log(Obj)
     }
 } 
@@ -90,6 +89,8 @@ let Calcular = () =>{
 
     if (false){
         tipo = "pie"
+
+        Obj.Titulo = Vet.shift()
 
         Objeto()
 
@@ -147,6 +148,9 @@ let Calcular = () =>{
             
     }else if (false) {
         tipo = "pie"
+
+        Obj.Titulo = Vet.shift()
+
         Objeto()
         // Devido a falta do banco de dados disponível, o metodo utilizado será sempre o anterior, como se ocorresse um erro
         // O codigo que iria ser utilizado para uma tentativa de subistituição está disponicel no arquvivo "utilizar depois ou removidos"
@@ -195,10 +199,15 @@ let Calcular = () =>{
 
     }else if (false) {
         tipo = "bar"
+
+        Obj.Titulo = Vet.shift()
+
         for (let prop in Vet) {
             Vet[prop] = parseFloat(Vet[prop])
         }
+
         Objeto()
+
         contador = 0
         for(Atual in Obj.Itens){
             if (contador == 0) {
@@ -221,6 +230,7 @@ let Calcular = () =>{
         }
         console.log(I)
         console.log(G)
+        console.log(Vet)
 
         
         soma = Vet.length
@@ -239,9 +249,11 @@ let Calcular = () =>{
                 contador ++
             }
 
+            media = 0 
             for(mediar of Vet){
-                media = media + mediar
+                media += mediar
             }
+
             media = media/Vet.length
             mediana = parseInt(Vet.length/2)
             medianas = 0
@@ -264,8 +276,19 @@ let Calcular = () =>{
             console.log(moda)
             console.log(mediana)
 
-        
+            desvio = 0
+            for(mediar in I){
+                desvio+= (Math.pow(G[mediar] - media), 2) * I[mediar]
+            }
+            desvio = desvio / Vet.length
+            desvio = Math.sqrt(desvio)
+            console.log(desvio)
 
+            cofvaria = (desvio / media)*100
+            
+            console.log(cofvaria)
+
+            passou = true
     }else {
 
         tipo = "bar"
@@ -401,6 +424,21 @@ let Calcular = () =>{
         console.log(Fa)
         console.log(Frs)
         console.log(Fas)
+
+        desvio = 0
+        for(mediar in I){
+            desvio+= (Math.pow(M[mediar] - media), 2) * I[mediar]
+        }
+
+        desvio = desvio / Vet.length
+        desvio = Math.sqrt(desvio)
+        console.log(desvio)
+
+        cofvaria = (desvio / media)*100
+            
+        console.log(cofvaria)
+
+        passou = true
     }
 
     var linha = document.createElement('tr');
@@ -465,50 +503,81 @@ let Calcular = () =>{
     }
     
     var linha = document.createElement('tr');
-    var vazio = document.createElement('td');
+    var campo1 = document.createElement('td');
     var campo_Moda = document.createElement('td');
     var campo_Media = document.createElement('td');
     var campo_Mediana = document.createElement('td');
-    var vazio2 = document.createElement('td');
+    var campo2 = document.createElement('td');
 
     var texto_Moda = document.createTextNode("Moda");
     var texto_Media = document.createTextNode("Media");
     var texto_Mediana = document.createTextNode("Mediana");
 
+    if(passou){
+        var texto_desvio = document.createTextNode("Desvio Padrão");
+        var texto_cofvaria = document.createTextNode("Coeficiente de varição");
+        
+        campo1.appendChild(texto_desvio);
+        campo2.appendChild(texto_cofvaria);
+    }
+
     campo_Moda.appendChild(texto_Moda);
     campo_Media.appendChild(texto_Media);
     campo_Mediana.appendChild(texto_Mediana);
    
-    linha.appendChild(vazio);
-    linha.appendChild(campo_Moda);
-    linha.appendChild(campo_Media);
-    linha.appendChild(campo_Mediana);
-    linha.appendChild(vazio2);
+    if(passou){
+        linha.appendChild(campo_Moda);
+        linha.appendChild(campo_Media);
+        linha.appendChild(campo_Mediana);
+        linha.appendChild(campo1);
+        linha.appendChild(campo2);
+    }else{
+        linha.appendChild(campo1);
+        linha.appendChild(campo_Moda);
+        linha.appendChild(campo_Media);
+        linha.appendChild(campo_Mediana);
+        linha.appendChild(campo2);
+    }
 
     linha.className = "tg"
 
     tabela.appendChild(linha)
 
     var linha = document.createElement('tr');
-    var vazio = document.createElement('td');
+    var campo1 = document.createElement('td');
     var campo_Moda = document.createElement('td');
     var campo_Media = document.createElement('td');
     var campo_Mediana = document.createElement('td');
-    var vazio2 = document.createElement('td');
+    var campo2 = document.createElement('td');
 
     var texto_Moda = document.createTextNode(moda);
     var texto_Media = document.createTextNode(media);
     var texto_Mediana = document.createTextNode(mediana);
+    if(passou){
+        var texto_desvio = document.createTextNode(desvio);
+        var texto_cofvaria = document.createTextNode(cofvaria);
+        
+        campo1.appendChild(texto_desvio);
+        campo2.appendChild(texto_cofvaria);
+    }
 
     campo_Moda.appendChild(texto_Moda);
     campo_Media.appendChild(texto_Media);
     campo_Mediana.appendChild(texto_Mediana);
    
-    linha.appendChild(vazio);
-    linha.appendChild(campo_Moda);
-    linha.appendChild(campo_Media);
-    linha.appendChild(campo_Mediana);
-    linha.appendChild(vazio2);
+    if(passou){
+        linha.appendChild(campo_Moda);
+        linha.appendChild(campo_Media);
+        linha.appendChild(campo_Mediana);
+        linha.appendChild(campo1);
+        linha.appendChild(campo2);
+    }else{
+        linha.appendChild(campo1);
+        linha.appendChild(campo_Moda);
+        linha.appendChild(campo_Media);
+        linha.appendChild(campo_Mediana);
+        linha.appendChild(campo2);
+    }
 
     linha.className = "tg"
 
