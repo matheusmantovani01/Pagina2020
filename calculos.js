@@ -49,9 +49,13 @@ QualiOr = false
 QuantDis = false
 
 
-///let Vet = ["Grau de Escolaridade", "Ensino Superior", "Ensino Médio", "Ensino Fundamental", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "Ensino Superior", "Ensino Superior" , "Ensino Médio", "Ensino Médio", "Ensino Médio", "muito bom", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "pessimo", "Ensino Fundamental", "Ensino Médio","Ensino Médio", "Ensino Médio"]
+//let Vet = ["Grau de Escolaridade", "Ensino Superior", "Ensino Médio", "Ensino Fundamental", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "Ensino Superior", "Ensino Superior" , "Ensino Médio", "Ensino Médio", "Ensino Médio", "muito bom", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "pessimo", "Ensino Fundamental", "Ensino Médio","Ensino Médio", "Ensino Médio"]
 
-let Vet = ["Roi", "111", "90", "121", "105", "122", "61", "128", "112", "128", "93", "108", "138", "88", "110", "112", "112", "97", "128", "102", "125", "87", "119", "104", "116", "96", "114", "107", "113", "80", "113", "123", "95", "115", "70", "115", "101", "114", "127", "92", "103", "78", "118"]
+//let Vet = ["Roi", "111", "90", "121", "105", "122", "61", "128", "112", "128", "93", "108", "138", "88", "110", "112", "112", "97", "128", "102", "125", "87", "119", "104", "116", "96", "114", "107", "113", "80", "113", "123", "95", "115", "70", "115", "101", "114", "127", "92", "103", "78", "118"]
+
+//let Vet = ["Titulo", "22", "22", "22", "25", "25", "25", "25", "26", "26", "26", "30", "30", "30", "0", "30", "30", "40", "40", "40", "40"]
+
+let Vet = ["Titulo", 1000, 1234, 1235, 1543, 2345, 2654, 3456, 3567, 5678, 6000, 4326, 4120, 2000, 2000, 1000, 1765, 1990, 2541, 3210, 4280, 5390, 5980, 4234, 3789, 3210, 3876, 1876, 2876, 2165, 2760]
 
 let Obj = {
     Titulo: "",
@@ -142,6 +146,7 @@ let Calcular = () =>{
             console.log(moda)
             console.log(mediana)
             
+            passou = false
             
             
 
@@ -278,13 +283,16 @@ let Calcular = () =>{
 
             desvio = 0
             for(mediar in I){
-                desvio+= (Math.pow(G[mediar] - media), 2) * I[mediar]
+                guardar = G[mediar] - media
+                guardar2 = Math.pow(guardar, 2)
+                guardar = guardar2 * I[mediar]
+                desvio += guardar
             }
             desvio = desvio / Vet.length
             desvio = Math.sqrt(desvio)
             console.log(desvio)
 
-            cofvaria = (desvio / media)*100
+            cofvaria = (desvio / media) * 100
             
             console.log(cofvaria)
 
@@ -303,20 +311,25 @@ let Calcular = () =>{
         return a - b;
         });
 
-        let At = Vet[Vet.length - 1] - Vet[0] + 1
-        let clasess = parseInt(Math.sqrt(Vet.length))
+        guardar = Vet.length - 1
+        let At = Vet[guardar] - Vet[0] + 1
+        guardar =Math.sqrt(Vet.length)
+        let clasess = parseInt(guardar)
         let intervalo
 
         while(passou == false){
             if(At % (clasess - 1) == 0){
                 passou = true
-                intervalo =  At / clasess - 1
+                intervalo =  At / (clasess - 1)
+                console.log("1")
             }else if (At % clasess == 0){
                 passou = true
-                intervalo =  At / clasess                
+                intervalo =  At / clasess
+                console.log("2")                
             }else if(At % (clasess + 1) == 0){
                 passou = true
-                intervalo =  At / clasess + 1
+                intervalo =  At / (clasess + 1)
+                console.log("3")
             }else{
                 At ++
             }
@@ -425,9 +438,14 @@ let Calcular = () =>{
         console.log(Frs)
         console.log(Fas)
 
+        guardar = 0
+        guardar2 = 0
         desvio = 0
         for(mediar in I){
-            desvio+= (Math.pow(M[mediar] - media), 2) * I[mediar]
+            guardar = M[mediar] - media
+            guardar2 = Math.pow(guardar, 2)
+            guardar = guardar2 * I[mediar]
+            desvio += guardar
         }
 
         desvio = desvio / Vet.length
