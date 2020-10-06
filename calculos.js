@@ -76,6 +76,26 @@ let Objeto = () =>{
     }
 } 
 
+let percent
+let posicao
+let MedidaSeparitriz
+let Quartil
+let Quintil
+let Decil
+let Percentil
+
+let Medida = () => {
+    if(Quartil){
+        MedidaSeparitriz = Quartil
+    }else if(Quintil){
+        MedidaSeparitriz = Quintil
+    }else if(Decil){
+        MedidaSeparitriz = Decil
+    }else if(Percentil){
+        MedidaSeparitriz = Percentil
+    }
+}
+
 
 let Calcular = () =>{
     console.log(QualNominal)
@@ -98,8 +118,16 @@ let Calcular = () =>{
 
         Objeto()
 
+        MedidaSeparitriz = 25
+        percent = (MedidaSeparitriz * Vet.length) / 100
+        percent = parseInt(percent)
+        contador = 0
+
         contador = 0
         for(Atual in Obj.Itens){
+            if (Atual == percent){
+                posicao = Obj.Itens[Atual]
+            }
             I[contador] = Obj.Itens[Atual]
             G[contador] = Atual
             contador ++
@@ -156,6 +184,11 @@ let Calcular = () =>{
 
         Obj.Titulo = Vet.shift()
 
+        MedidaSeparitriz = 25
+        percent = (MedidaSeparitriz * Vet.length) / 100
+        percent = parseInt(percent)
+        contador = 0
+
         Objeto()
         // Devido a falta do banco de dados disponível, o metodo utilizado será sempre o anterior, como se ocorresse um erro
         // O codigo que iria ser utilizado para uma tentativa de subistituição está disponicel no arquvivo "utilizar depois ou removidos"
@@ -168,6 +201,9 @@ let Calcular = () =>{
         console.log(soma)
         contador = 0
             for(item of I){
+                if (contador == percent){
+                    posicao = G[contador]
+                }
                 Fr[contador] = (item / soma) * 100
                 Frs[contador] = item
                 if (contador == 0){
@@ -213,8 +249,15 @@ let Calcular = () =>{
 
         Objeto()
 
+        MedidaSeparitriz = 25
+        percent = (MedidaSeparitriz * Vet.length) / 100
+        percent = parseInt(percent)
         contador = 0
+
         for(Atual in Obj.Itens){
+            if (Atual == percent){
+                posicao = Obj.Itens[Atual]
+            }
             if (contador == 0) {
                 I[contador] = Obj.Itens[Atual]
                 G[contador] = Atual
@@ -242,6 +285,7 @@ let Calcular = () =>{
         console.log(soma)
         contador = 0
             for(item of I){
+                
                 Fr[contador] = (item / soma) * 100
                 Frs[contador] = item
                 if (contador == 0){
@@ -335,6 +379,11 @@ let Calcular = () =>{
             }
         }
 
+        MedidaSeparitriz = 25
+        percent = (MedidaSeparitriz * Vet.length) / 100
+        percent = parseInt(percent)
+
+        console.log(MedidaSeparitriz + " oi")
         console.log(Vet)
         console.log(At)
         console.log(clasess)
@@ -344,7 +393,9 @@ let Calcular = () =>{
         let soma = 0
         contador = 0
         for(Add in Vet){
-
+            if (Add == percent){
+                posicao = nome
+            }
            if(Vet[Add] < guardar + intervalo){
                 nome = String(guardar + "|---" + (guardar + intervalo))
                 if (guardar == Vet[Add]){
@@ -377,6 +428,7 @@ let Calcular = () =>{
         console.log(soma)
         contador = 0
             for(item of I){
+                
                 Fr[contador] = (item / soma) * 100
                 Frs[contador] = item
                 if (contador == 0){
@@ -533,7 +585,7 @@ let Calcular = () =>{
 
     if(passou){
         var texto_desvio = document.createTextNode("Desvio Padrão");
-        var texto_cofvaria = document.createTextNode("Coeficiente de varição");
+        var texto_cofvaria = document.createTextNode("Coeficiente de varição (%)");
         
         campo1.appendChild(texto_desvio);
         campo2.appendChild(texto_cofvaria);
@@ -600,5 +652,15 @@ let Calcular = () =>{
     linha.className = "tg"
 
     tabela.appendChild(linha)
-  
+
+    
+    var linha = document.createElement('tr');
+    var campo1 = document.createElement('td')
+    var Texto = document.createTextNode(MedidaSeparitriz + "% ou menos esta na categoria: " + posicao );
+    campo1.appendChild(Texto);
+    linha.appendChild(campo1);
+
+    linha.className = "tg"
+
+    tabela.appendChild(linha)
 }
