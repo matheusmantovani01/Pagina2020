@@ -49,13 +49,13 @@ QualiOr = false
 QuantDis = false
 
 
-//let Vet = ["Grau de Escolaridade", "Ensino Superior", "Ensino Médio", "Ensino Fundamental", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "Ensino Superior", "Ensino Superior" , "Ensino Médio", "Ensino Médio", "Ensino Médio", "muito bom", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "pessimo", "Ensino Fundamental", "Ensino Médio","Ensino Médio", "Ensino Médio"]
+//let Vet = ["Titulo", "Rio de Janeiro", "Porto de Galinhas", "Porto de Galinhas", "Gramado", "Rio de Janeiro", "Gramado", "Porto de Galinhas", "Salvador", "Salvador", "Gramado", "Rio de Janeiro", "Gramado", "Gramado", "Rio de Janeiro", "Porto de Galinhas", "Gramado", "Fernando de Noronha", "Fernando de Noronha", "Fernando de Noronha", "Gramado"]
 
 //let Vet = ["Roi", "111", "90", "121", "105", "122", "61", "128", "112", "128", "93", "108", "138", "88", "110", "112", "112", "97", "128", "102", "125", "87", "119", "104", "116", "96", "114", "107", "113", "80", "113", "123", "95", "115", "70", "115", "101", "114", "127", "92", "103", "78", "118"]
 
-//let Vet = ["Titulo", "22", "22", "22", "25", "25", "25", "25", "26", "26", "26", "30", "30", "30", "0", "30", "30", "40", "40", "40", "40"]
+//let Vet = ["Titulo", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5,]
 
-let Vet = ["Titulo", 1000, 1234, 1235, 1543, 2345, 2654, 3456, 3567, 5678, 6000, 4326, 4120, 2000, 2000, 1000, 1765, 1990, 2541, 3210, 4280, 5390, 5980, 4234, 3789, 3210, 3876, 1876, 2876, 2165, 2760]
+let Vet = ["Titulo", 32, 46, 90, 40, 57, 32, 32, 33, 50, 42, 35, 38, 35, 41, 34, 52, 32, 75, 69, 44, 36, 42, 60, 56, 30, 38, 37, 79, 45, 37, 30, 32, 62, 50, 45, 41, 59, 31, 66, 39, 43, 33, 70, 50, 47, 30, 36, 40, 67, 39, 80, 89, 90, 35, 36, 89, 76, 78, 90, 49, 54, 63, 37, 36, 78, 89, 45, 56, 67, 78, 69, 47, 36, 57, 68, 79, 88, 76, 72, 91, 92, 93, 54, 65, 66, 38, 37, 48, 100, 65, 67, 89, 79, 89, 81, 82, 53, 65, 78, 90]
 
 let Obj = {
     Titulo: "",
@@ -125,9 +125,6 @@ let Calcular = () =>{
 
         contador = 0
         for(Atual in Obj.Itens){
-            if (Atual == percent){
-                posicao = Obj.Itens[Atual]
-            }
             I[contador] = Obj.Itens[Atual]
             G[contador] = Atual
             contador ++
@@ -140,6 +137,9 @@ let Calcular = () =>{
         contador = 0
 
             for(item of I){
+                if (contador == percent){
+                    posicao = G[contador]
+                }
                 Fr[contador] = (item / soma) * 100
                 Frs[contador] = item
                 if (contador == 0){
@@ -194,7 +194,7 @@ let Calcular = () =>{
         // O codigo que iria ser utilizado para uma tentativa de subistituição está disponicel no arquvivo "utilizar depois ou removidos"
 
         
-                alert("Esse tipo não pode ser utilizado com as informações passadas, Utilizaremos o Metodo Qualitativo Nomimal...")
+                //alert("Esse tipo não pode ser utilizado com as informações passadas, Utilizaremos o Metodo Qualitativo Nomimal...")
                
 
         soma = Vet.length
@@ -343,6 +343,7 @@ let Calcular = () =>{
             passou = true
     }else {
 
+        
         tipo = "bar"
 
         Obj.Titulo = Vet.shift()
